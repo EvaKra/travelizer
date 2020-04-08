@@ -1,6 +1,36 @@
-All itineraries
-<% @itineraries.each do |itinerary| %>
- <% if @itineraries.any? %>
-<%= @itinerary.name%>
-<%end%>
-<%end%>
+<div class="container">
+  <div class="cards-container">
+        <% @itineraries.each do |itinerary|%>
+            <div class="itinerary-card">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <% itinerary.photos.each_with_index do |photo, index| %>
+                        <div class="carousel-item <%= 'active' if index.zero? %>">
+                            <%= cl_image_tag(photo.key, class: "d-block w-100" ) %>
+                        </div>
+                        <% end %>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="name-duration">
+                    <div class="i-name"><%= link_to itinerary.name, itinerary_path(itinerary) %>
+                    </div>
+                    <div class="duration"><%= itinerary.duration %> days
+                    </div>
+                </div>  
+            </div>
+        <% end %>
+  </div>
+</div>

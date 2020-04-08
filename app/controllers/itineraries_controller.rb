@@ -38,6 +38,6 @@ class ItinerariesController < ApplicationController
     private
 
     def itinerary_params
-        params.require(:itinerary).permit(:name, :duration)
+        params.require(:itinerary).permit(:name, :duration, photos: [])
     end
 end

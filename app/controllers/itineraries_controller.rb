@@ -6,6 +6,7 @@ class ItinerariesController < ApplicationController
 
     def show
         @itinerary = Itinerary.find(params[:id])
+        @destinations = @itinerary.destinations
     end
 
     def new
@@ -19,7 +20,7 @@ class ItinerariesController < ApplicationController
        if @itinerary.save
          redirect_to itinerary_path(@itinerary)
        else
-         render:new
+         render :new
        end
     end
 
@@ -40,6 +41,6 @@ class ItinerariesController < ApplicationController
     private
 
     def itinerary_params
-        params.require(:itinerary).permit(:name, :duration, photos: [])
+        params.require(:itinerary).permit(:name, :duration, photos: [],  destination_ids: [])
     end
 end

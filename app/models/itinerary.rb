@@ -1,12 +1,9 @@
 class Itinerary < ApplicationRecord
   belongs_to :user
-  has_many :itinerary_destinations, dependent: :destroy
-  has_many :destinations, through: :itinerary_destinations
-  has_many :itinerary_accommodations, dependent: :destroy
-  has_many :accommodations, through: :itinerary_accommodations
-  has_many :itinerary_activities, dependent: :destroy
-  has_many :activities, through: :itinerary_activities
-  has_many :itinerary_transports, dependent: :destroy
-  has_many :transports, through: :itinerary_transports
+  has_many :destinations, dependent: :destroy
+  has_many :accommodations, dependent: :destroy
+  has_many :activities, dependent: :destroy
+  has_many :transports, dependent: :destroy
   has_many_attached :photos
+  accepts_nested_attributes_for :destinations, reject_if: :all_blank, allow_destroy: true
 end

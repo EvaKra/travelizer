@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_084517) do
+ActiveRecord::Schema.define(version: 2020_04_09_165709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_084517) do
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "itinerary_id"
+    t.index ["itinerary_id"], name: "index_accommodations_on_itinerary_id"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -60,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_084517) do
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "itinerary_id"
+    t.index ["itinerary_id"], name: "index_activities_on_itinerary_id"
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -70,6 +74,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_084517) do
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "itinerary_id"
+    t.index ["itinerary_id"], name: "index_destinations_on_itinerary_id"
   end
 
   create_table "itineraries", force: :cascade do |t|
@@ -79,42 +85,6 @@ ActiveRecord::Schema.define(version: 2020_04_08_084517) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_itineraries_on_user_id"
-  end
-
-  create_table "itinerary_accommodations", force: :cascade do |t|
-    t.bigint "itinerary_id", null: false
-    t.bigint "accommodation_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["accommodation_id"], name: "index_itinerary_accommodations_on_accommodation_id"
-    t.index ["itinerary_id"], name: "index_itinerary_accommodations_on_itinerary_id"
-  end
-
-  create_table "itinerary_activities", force: :cascade do |t|
-    t.bigint "itinerary_id", null: false
-    t.bigint "activity_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["activity_id"], name: "index_itinerary_activities_on_activity_id"
-    t.index ["itinerary_id"], name: "index_itinerary_activities_on_itinerary_id"
-  end
-
-  create_table "itinerary_destinations", force: :cascade do |t|
-    t.bigint "itinerary_id", null: false
-    t.bigint "destination_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["destination_id"], name: "index_itinerary_destinations_on_destination_id"
-    t.index ["itinerary_id"], name: "index_itinerary_destinations_on_itinerary_id"
-  end
-
-  create_table "itinerary_transports", force: :cascade do |t|
-    t.bigint "itinerary_id", null: false
-    t.bigint "transport_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["itinerary_id"], name: "index_itinerary_transports_on_itinerary_id"
-    t.index ["transport_id"], name: "index_itinerary_transports_on_transport_id"
   end
 
   create_table "transports", force: :cascade do |t|
@@ -129,6 +99,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_084517) do
     t.string "end_location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "itinerary_id"
+    t.index ["itinerary_id"], name: "index_transports_on_itinerary_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -143,14 +115,10 @@ ActiveRecord::Schema.define(version: 2020_04_08_084517) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accommodations", "itineraries"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "activities", "itineraries"
+  add_foreign_key "destinations", "itineraries"
   add_foreign_key "itineraries", "users"
-  add_foreign_key "itinerary_accommodations", "accommodations"
-  add_foreign_key "itinerary_accommodations", "itineraries"
-  add_foreign_key "itinerary_activities", "activities"
-  add_foreign_key "itinerary_activities", "itineraries"
-  add_foreign_key "itinerary_destinations", "destinations"
-  add_foreign_key "itinerary_destinations", "itineraries"
-  add_foreign_key "itinerary_transports", "itineraries"
-  add_foreign_key "itinerary_transports", "transports"
+  add_foreign_key "transports", "itineraries"
 end

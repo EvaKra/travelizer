@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
+puts "deleting old data"
+Itinerary.destroy_all
+Destination.destroy_all
+User.destroy_all
+puts "creating new users"
+user = User.create(email: "eva@gmail.com", password: "123456")
+
+puts "creating new itineraries"
+

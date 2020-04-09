@@ -1,14 +1,6 @@
 <%= simple_form_for(@itinerary) do |f| %>
   <%= f.input :name, label:"Title of Itinerary" %>
   <%= f.input :duration, label: "Number of days" %>
-   <%#= f.association :destinations, multiple: true #collection: Destination.all.map { |d| [ "#{d.country} - #{d.city}", d.id ] } %>
-   <%= f.simple_fields_for(:itinerary_destinations) do |p| %>
-      <% f.simple_fields_for(:destination) do |d_form| %>
-      <%= d_form.input :country%>
-      <%= d_form.input :city%>
-      <%#w= p.input :date%>
-      <%end%>
-  <% end %> 
   <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
   <%= f.submit %>
 <% end %>

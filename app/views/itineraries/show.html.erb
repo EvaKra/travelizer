@@ -1,14 +1,51 @@
-<%= @itinerary.name %>
+<div class ="container">
+    <div class="title">
+        <h1><%= @itinerary.name %></h1>
+    </div>
 
-<% @itinerary.destinations.each do |destination|%>
-<%= destination.country%>
-<%= destination.city%>
-<%end%>
+    <%# @itinerary.destinations.each do |destination|%>
+    <%#= destination.country%>
+    <%#= destination.city%>
+    <%#= destination.date%>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">    
+<% @destinations.each do |d| %>
+  <li class="nav-item">
+  <a class="nav-link <%= 'active' if @destinations.first == d %>" id="<%= d.city.downcase %>-tab" <%= 'aria-selected="true"' if @destinations.first == d %> href="#<%= d.city.downcase %>" data-toggle="tab" role="tab" aria-controls="<%= d.city.downcase %>"><%= d.city %>
+  </a>
+  </li>
+    <% end %>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <% @destinations.each_with_index do |d, i| %>
+  <div class="tab-pane fade <%= 'show active' if i == 0 %>" id="<%= d.city.downcase %>" role="tabpanel" aria-labelledby="<%= d.city.downcase %>-tab">
+    <%= d.date%>    <%= d.country%>    <%= d.city%>
+  </div>
+<% end %>
+</div>
 
 
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">toll</div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">hallo</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">test</div>
+</div>
 
 
-<%= link_to "Add destination", new_itinerary_destination_path(@itinerary) %>
-<%= link_to "Add transport", new_itinerary_transport_path(@itinerary) %>
-<%= link_to "Add accommodation", new_itinerary_accommodation_path(@itinerary) %>
-<%= link_to "Add activity", new_itinerary_activity_path(@itinerary) %>
+    <%= link_to "Add destination", new_itinerary_destination_path(@itinerary) %>
+    <%= link_to "Add transport", new_itinerary_transport_path(@itinerary) %>
+    <%= link_to "Add accommodation", new_itinerary_accommodation_path(@itinerary) %>
+    <%= link_to "Add activity", new_itinerary_activity_path(@itinerary) %>
+</div>

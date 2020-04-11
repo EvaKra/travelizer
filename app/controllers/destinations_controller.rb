@@ -10,6 +10,11 @@ class DestinationsController < ApplicationController
         end
       end
 
+      def show
+        @destination = Destination.find(params[:id])
+        @destinations = @itinerary.destinations
+      end
+
       def new
         @itinerary = Itinerary.find(params[:itinerary_id])
         @destination = Destination.new

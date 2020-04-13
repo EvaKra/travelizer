@@ -1,13 +1,6 @@
 class DestinationsController < ApplicationController
     def index
-        @destinations = Destination.geocoded # returns destinations with coordinates
-    
-        @markers = @destinations.map do |destination|
-          {
-            lat: destination.latitude,
-            lng: destination.longitude
-          }
-        end
+      
       end
 
       def show

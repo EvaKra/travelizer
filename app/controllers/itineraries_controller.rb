@@ -13,7 +13,8 @@ class ItinerariesController < ApplicationController
         @markers = @destinations.map do |destination|
           {
             lat: destination.latitude,
-            lng: destination.longitude
+            lng: destination.longitude,
+            infoWindow: {content: render_to_string(partial: "/itineraries/map_box", locals: { destination: destination }) }
           }
         end
     end
@@ -47,11 +48,11 @@ class ItinerariesController < ApplicationController
         end
     end
 
-      def destroy
-        @itinerary = Itinerary.find(params[:id])
-        @itinerary.destroy
-        redirect_to itineraries_path
-      end
+    def destroy
+      @itinerary = Itinerary.find(params[:id])
+      @itinerary.destroy
+      redirect_to itineraries_path
+    end
 
     private
 

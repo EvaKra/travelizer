@@ -29,7 +29,7 @@ const mapElement = document.getElementById('map');
             markers.forEach((marker) => {
                 bounds.extend([marker.lng, marker.lat]);
             });
-            map.fitBounds(bounds, {duration: 0, padding:75})
+            map.fitBounds(bounds, {duration: 0, padding:120})
         }
     }
 

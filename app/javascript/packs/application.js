@@ -10,3 +10,5 @@ document.addEventListener('turbolinks:load', () => {
 })
 
 import 'mapbox-gl/dist/mapbox-gl.css';
+
+

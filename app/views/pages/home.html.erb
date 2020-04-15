@@ -1,4 +1,18 @@
-<div class="container">
-    <p>Find your next itinerary and share it with your friends </p>
-</div>
 
+    <div class="home-background">
+        <div class="form-box">
+            <p>Plan your next trip!</p>
+            <div class="input-field">
+                <%= form_tag itineraries_path, method: :get do %>
+                    <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control",
+                    placeholder: "Where are you going?"
+                    %>
+            </div>    
+            <div class="submit-button">
+                <%= submit_tag "Search", class: "search-button" %>
+            </div>
+            <% end %>
+        </div>
+    </div>    

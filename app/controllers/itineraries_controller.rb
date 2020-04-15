@@ -1,7 +1,11 @@
 class ItinerariesController < ApplicationController
 
     def index
-        @itineraries = Itinerary.all
+        if params[:query].present?
+          @itineraries = Itinerary.where("name ILIKE ?", "%#{params[:query]}%")
+        else
+          @itineraries = Itinerary.all
+        end
     end
 
     def show

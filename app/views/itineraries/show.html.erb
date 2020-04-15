@@ -12,20 +12,21 @@
 
     <div class="bootstrap-tabs">
         <ul class="nav nav-tabs" id="myTab" role="tablist">    
-            <% @destinations.each do |d| %>
+            <% @itinerary.destinations.each do |d| %>
                 <li class="nav-item">
-                <a class="nav-link <%= 'active' if @destinations.first == d %>" id="<%= d.city.downcase %>-tab" <%= 'aria-selected="true"' if @destinations.first == d %> href="#<%= d.city.downcase %>" data-toggle="tab" role="tab" aria-controls="<%= d.city.downcase %>"><%= d.city %>
+                <a class="nav-link <%= 'active' if @itinerary.destinations.first == d %>" id="<%= d.city.downcase %>-tab" <%= 'aria-selected="true"' if @destinations.first == d %> href="#<%= d.city.downcase %>" data-toggle="tab" role="tab" aria-controls="<%= d.city.downcase %>"><%= d.city %>
                 </a>
                 </li>
             <% end %>
         </ul>
 
         <div class="tab-content" id="myTabContent">
-            <% @destinations.each_with_index do |d, i| %>
+            <% @itinerary.destinations.each_with_index do |d, i| %>
                 <div class="tab-pane fade <%= 'show active' if i == 0 %>" id="<%= d.city.downcase %>" role="tabpanel" aria-labelledby="<%= d.city.downcase %>-tab">
                 <%= d.date%>    
                 <%= d.country%>    
                 <%= d.city%>
+                <%= d.description%>
                 </div>
             <% end %>
         </div>

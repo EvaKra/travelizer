@@ -23,9 +23,11 @@
         <div class="tab-content" id="myTabContent">
             <% @itinerary.destinations.each_with_index do |d, i| %>
                 <div class="tab-pane fade <%= 'show active' if i == 0 %>" id="<%= d.city.downcase %>" role="tabpanel" aria-labelledby="<%= d.city.downcase %>-tab">
-                <%= d.date%>    
-                <%= d.country%>    
-                <%= d.city%>
+                    <div class="info">
+                        <%= d.date%>
+                        <%= d.city%>
+                        <%= d.country%> 
+                    </div>
                 <%= d.description%>
                 </div>
             <% end %>

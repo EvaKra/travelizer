@@ -27,7 +27,7 @@ itinerary.save!
 itinerary.destinations.create!(country: "Vietnam", city: "Ho Chi Minh City", date: "28.03.2018", description: "Vietnam's capital races to make up for time lost to the ravages of war and a government that as recently as the 1990s kept the outside world at bay. Its streets surge with scooters vying for right of way amid the din of constantly blaring horns, and all around layers of history reveal periods of French and Chinese occupation – offering a glimpse into the resilience of ambitious, proud Hanoians.")
 itinerary.destinations.create!(country: "Vietnam", city: "Nah Trang", date: "31.03.2018", description: "")
 itinerary.destinations.create!(country: "Vietnam", city: "Hoi An", date: "03.04.2018", description: "")
-itinerary.destinations.create!(country: "Vietnam", city: "Hue", date: "06.04.2018", description: "")
+itinerary.destinations.create!(country: "Vietnam", city: "Hue Vietnam", date: "06.04.2018", description: "")
 itinerary.destinations.create!(country: "Vietnam", city: "Hanoi", date: "08.04.2018", description: "")
 itinerary.destinations.create!(country: "Laos", city: "Luang Prabang", date: "12.04.2018", description: "")
 
@@ -43,7 +43,7 @@ itinerary.destinations.create!(country: "Cuba", city: "Havana", date: "19.04.201
 itinerary.destinations.create!(country: "Cuba", city: "Vinales", date: "22.04.2019", description: "")
 itinerary.destinations.create!(country: "Cuba", city: "Soroa", date: "26.04.2019", description: "")
 itinerary.destinations.create!(country: "Cuba", city: "Cienfuegos", date: "28.04.2019", description: "")
-itinerary.destinations.create!(country: "Cuba", city: "Trinidad", date: "30.04.2019", description: "")
+itinerary.destinations.create!(country: "Cuba", city: "Trinidad Cuba", date: "30.04.2019", description: "")
 itinerary.destinations.create!(country: "Cuba", city: "Havana", date: "03.05.2019", description: "")
 
 
@@ -75,7 +75,7 @@ itinerary.destinations.create!(country: "India", city: "Delhi", date: "12.04.201
 itinerary.destinations.create!(country: "India", city: "Agra", date: "15.04.2017", description: "")
 itinerary.destinations.create!(country: "India", city: "Jaipur", date: "16.04.2017", description: "")
 itinerary.destinations.create!(country: "India", city: "Udaipur", date: "19.04.2017", description: "")
-itinerary.destinations.create!(country: "India", city: "Kochi", date: "22.04.2017", description: "")
+itinerary.destinations.create!(country: "India", city: "Kochin", date: "22.04.2017", description: "")
 itinerary.destinations.create!(country: "India", city: "Backwaters", date: "24.04.2017", description: "")
 itinerary.destinations.create!(country: "India", city: "Munnar", date: "25.04.2017", description: "")
 itinerary.destinations.create!(country: "India", city: "Varkala", date: "27.04.2017", description: "")

@@ -1,5 +1,6 @@
 <%= simple_form_for [@itinerary, @destination, @transport] do |f| %>
-  <%#= f.input :type%>
+  <%= f.input :transport_type, :label => "Type of transport", :collection => ['Boat','Car', 'Flight', 'Train', 'Taxi', 'Uber'] %>
+  <%#= f.select :transport_type, ['Boat','Car', 'Flight', 'Train', 'Taxi', 'Uber']%>
   <%= f.input :start_location%>
   <%= f.input :via_location%>
   <%= f.input :end_location%>

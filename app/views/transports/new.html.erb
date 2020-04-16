@@ -1,0 +1,7 @@
+<%= simple_form_for [@itinerary, @destination, @transport] do |f| %>
+  <%#= f.input :type%>
+  <%= f.input :start_location%>
+  <%= f.input :via_location%>
+  <%= f.input :end_location%>
+  <%= f.submit %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_150440) do
+ActiveRecord::Schema.define(version: 2020_04_16_093227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_150440) do
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "itinerary_id"
-    t.index ["itinerary_id"], name: "index_accommodations_on_itinerary_id"
+    t.bigint "destination_id"
+    t.index ["destination_id"], name: "index_accommodations_on_destination_id"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_150440) do
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "itinerary_id"
-    t.index ["itinerary_id"], name: "index_activities_on_itinerary_id"
+    t.bigint "destination_id"
+    t.index ["destination_id"], name: "index_activities_on_destination_id"
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -100,8 +100,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_150440) do
     t.string "end_location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "itinerary_id"
-    t.index ["itinerary_id"], name: "index_transports_on_itinerary_id"
+    t.bigint "destination_id"
+    t.index ["destination_id"], name: "index_transports_on_destination_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,10 +116,10 @@ ActiveRecord::Schema.define(version: 2020_04_14_150440) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "accommodations", "itineraries"
+  add_foreign_key "accommodations", "destinations"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "activities", "itineraries"
+  add_foreign_key "activities", "destinations"
   add_foreign_key "destinations", "itineraries"
   add_foreign_key "itineraries", "users"
-  add_foreign_key "transports", "itineraries"
+  add_foreign_key "transports", "destinations"
 end

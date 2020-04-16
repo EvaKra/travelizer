@@ -50,7 +50,8 @@ itinerary.destinations.create!(country: "Cuba", city: "Havana", date: "03.05.201
 puts "Lebanon and Jordan"
 
 file = URI.open("https://images.unsplash.com/photo-1572704956971-74e41e37d1b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80")
-itinerary = Itinerary.new(name: "Lebanon and Jordan", duration: 14, user_id: default.id)
+itinerary = Itinerary.new(name: "Lebanon and Jordan", duration: 14, summary: "Despite the fact that Lebanon is one of the tiniest countries in the world, it also brags about being one of the most culturally diverse countries on the planet, where dozens of different religions coexist pacifically.
+With an ancient and fascinating history, the best nightlife in the Middle East, awesome cuisine and a liberal and westernized social life, sometimes you may forget that you are actually at the heart of the most turbulent region in the world.", user_id: default.id)
 itinerary.photos.attach(io: file, filename: 'itinerary.png', content_type: 'image/png')
 itinerary.save!
 

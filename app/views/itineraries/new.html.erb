@@ -1,6 +1,7 @@
 <%= simple_form_for(@itinerary) do |f| %>
   <%= f.input :name, label:"Title of Itinerary" %>
   <%= f.input :duration, label: "Number of days" %>
+  <%= f.input :summary, label: "Give us a short summary of your trip" %>
   <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
   <%= f.submit %>
 <% end %>

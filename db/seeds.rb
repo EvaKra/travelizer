@@ -35,7 +35,7 @@ itinerary.destinations.create!(country: "Laos", city: "Luang Prabang", date: "12
 puts "Cuba"
 
 file = URI.open("https://images.unsplash.com/photo-1584098181992-e7f35b51f85a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")
-itinerary = Itinerary.new(name: "Cuba", duration: 18, user_id: default.id)
+itinerary = Itinerary.new(name: "Cuba", duration: 18, summary:"Cuba is like a prince in a poor man’s coat: behind the sometimes shabby facades, gold dust lingers. It’s these rich dichotomies that make travel here the exciting, exhilarating roller-coaster ride it is. Trapped in a time warp and reeling from an economic embargo that has grated for more than half a century, this is a country where you can wave goodbye to everyday assumptions and expect the unexpected.", user_id: default.id)
 itinerary.photos.attach(io: file, filename: 'itinerary.png', content_type: 'image/png')
 itinerary.save!
 

@@ -29,10 +29,12 @@
                         <%= d.country%> 
                     </div>
                     <p><%= d.description%></p><br>
-                    <h3>Things to do in <%=d.city%></h3>
+                    <h2>Things to do in <%=d.city%></h2>
                         <% d.activities.each do |a| %>
-                        <%= a.name%>
-                        <%= a.description%>
+                        <div class="activity-box">
+                            <h3><%= a.name%></h3><br>
+                            <%= a.description%>
+                        </div>
                         <%end%>
 
                     <div class="button-list">

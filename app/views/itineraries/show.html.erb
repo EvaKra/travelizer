@@ -28,14 +28,23 @@
                         <%= d.city%>
                         <%= d.country%> 
                     </div>
-                    <%= d.description%>
+                    <p><%= d.description%></p><br>
+                    <h3>Things to do in <%=d.city%></h3>
+                        <% d.activities.each do |a| %>
+                        <%= a.name%>
+                        <%= a.description%>
+                        <%end%>
+
+                    <div class="button-list">
+                        <%#= link_to "Add transport", new_itinerary_destination_transport_path(@destination) %>
+                        <%#= link_to "Add accommodation", new_itinerary_destination_accommodation_path(@destination) %>
+                        <%= link_to "Add activity", new_itinerary_destination_activity_path(@itinerary, d)%>
+                    </div>
                 </div>
             <% end %>
         </div>
     </div>
 
     <%= link_to "Add destination", new_itinerary_destination_path(@itinerary) %>
-    <%= link_to "Add transport", new_itinerary_transport_path(@itinerary) %>
-    <%= link_to "Add accommodation", new_itinerary_accommodation_path(@itinerary) %>
-    <%= link_to "Add activity", new_itinerary_activity_path(@itinerary) %>
+    
 </div>

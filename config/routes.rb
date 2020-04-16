@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :search, only: [:index]
   resources :itineraries do
     resources :destinations, only: [:new, :create, :edit, :update]
-    resources :accommodations, only: [:new, :create, :edit, :update]
-    resources :activities, only: [:new, :create, :edit, :update]
-    resources :transports, only: [:new, :create, :edit, :update]
-  end
+    resources :destinations do   
+      resources :accommodations, only: [:new, :create, :edit, :update]
+      resources :activities, only: [:new, :create, :edit, :update]
+      resources :transports, only: [:new, :create, :edit, :update]
+    end
+    end  
 end

@@ -1,0 +1,6 @@
+<%= simple_form_for [@itinerary, @destination, @activity] do |f| %>
+  <%= f.input :name%>
+  <%= f.input :description%>
+  <%= f.input :cost%>
+  <%= f.submit %>
+<% end %>

@@ -5,7 +5,7 @@ class DestinationsController < ApplicationController
 
       def show
         @destination = Destination.find(params[:id])
-        @destinations = @itinerary.destinations
+        
       end
 
       def new

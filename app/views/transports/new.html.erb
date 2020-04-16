@@ -1,8 +1,8 @@
 <%= simple_form_for [@itinerary, @destination, @transport] do |f| %>
   <%= f.input :transport_type, :label => "Type of transport", :collection => ['Boat','Car', 'Flight', 'Train', 'Taxi', 'Uber'] %>
-  <%#= f.select :transport_type, ['Boat','Car', 'Flight', 'Train', 'Taxi', 'Uber']%>
-  <%= f.input :start_location%>
-  <%= f.input :via_location%>
-  <%= f.input :end_location%>
+  <%= f.input :description, :label => "Summary" %>
+  <%= f.input :start_location, :label => "Where did you start?"%>
+  <%= f.input :via_location, :label => "Did you stop on the way? If yes, where?"%>
+  <%= f.input :end_location, :label => "Destination"%>
   <%= f.submit %>
 <% end %>

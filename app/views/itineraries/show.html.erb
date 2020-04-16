@@ -39,14 +39,16 @@
                     <h2>Transport</h2>
                     <% d.transports.each do |t| %>
                         <div class="activity-box">
-                            <p>Add description column to transport Model</p>
+                            <h3><%= t.start_location %> to <%= t.end_location%></h3><br>
+                            <%= t.description%>
                         </div>
                         <%end%>
 
                     <div class="button-list">
-                        <%= link_to "Add transport", new_itinerary_destination_transport_path(@itinerary, d) %>
-                        <%= link_to "Add accommodation", new_itinerary_destination_accommodation_path(@itinerary, d) %>
-                        <%= link_to "Add activity", new_itinerary_destination_activity_path(@itinerary, d)%>
+                        <p>Add more information:</P>
+                        <%= link_to "Transport", new_itinerary_destination_transport_path(@itinerary, d) %>
+                        <%= link_to "Accommodation", new_itinerary_destination_accommodation_path(@itinerary, d) %>
+                        <%= link_to "Activity", new_itinerary_destination_activity_path(@itinerary, d)%>
                     </div>
                 </div>
             <% end %>

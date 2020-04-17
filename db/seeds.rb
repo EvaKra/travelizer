@@ -63,7 +63,12 @@ itinerary.photos.attach(io: File.open('app/assets/images/Lebanon/Byblos.JPG'), f
 #itinerary.photos.attach(io: file_1, filename: 'itinerary.png', content_type: 'image/png')
 itinerary.save!
 
-beirut = itinerary.destinations.create!(country: "Lebanon", city: "Beirut", date: "20.10.2019", description: "I love Beirut because of its deep, rich and contrasting history, composed of dozens of districts that differ massively from each other: the hipster district of Gemmayzeh, Hezbollah areas like Bourj al-Barajneh, the student neighborhood of Hamra, old Palestinian refugee camps, the Armenian district of Bourj Hammoud, several Christian areas and much, much more!")
+beirut = itinerary.destinations.new(country: "Lebanon", city: "Beirut", date: "20.10.2019", description: "I love Beirut because of its deep, rich and contrasting history, composed of dozens of districts that differ massively from each other: the hipster district of Gemmayzeh, Hezbollah areas like Bourj al-Barajneh, the student neighborhood of Hamra, old Palestinian refugee camps, the Armenian district of Bourj Hammoud, several Christian areas and much, much more!")
+beirut.photos.attach(io: File.open('app/assets/images/Lebanon/Beirut_Church_Protest.JPG'), filename: 'itinerary.jpg', content_type: 'image/jpg')
+beirut.photos.attach(io: File.open('app/assets/images/Lebanon/Beirut_Martyr_Square.JPG'), filename: 'itinerary.jpg', content_type: 'image/jpg')
+beirut.save!
+
+
 beirut.activities.create!(name: "Walking Tour", cost:20, description:"We did a 4 hour walking tour in Beirut with https://www.alternative-beirut.com/ . The tour started from the top of the St. Nicolas Staircase (NOT the St. Nicolas Church) in Gemmayzeh and was supposed to end at Bab Idriss, next to the old Holiday Inn Hotel. Due to the revolution protests at the time 
 we ended the tour at the Martyr Square. We learned a lot about Lebanon's culture and history. I would recommend doing a walking tour as you see so much more.")
 beirut.activities.create!(name: "The Pigeon Rocks", cost:0, description:"Located in the sea by the historical Raouche, the Pigeon Rocks are a Lebanese natural treasure. In the area surrounding the rocks, evidence of ancient human existence in Lebanon has been found. Walk on Raouche’s Corniche and marvel at these amazing sights.")

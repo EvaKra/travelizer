@@ -5,10 +5,10 @@
     </div>
 
 
-<div id="map"
-     style="width: 100%; height: 400px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div id="map"
+        style="width: 100%; height: 400px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 
     <div class="bootstrap-tabs">
@@ -30,19 +30,25 @@
                         <%= d.country%> 
                     </div>
                     <p><%= d.description%></p><br>
+                        <div class="d-image-box">
+                            <% d.photos.each do |photo|%>
+                                <div class="destination-image" ><%= cl_image_tag photo.key %>
+                                </div>
+                            <%end%>
+                        </div>    
                     <h2>Things to do in <%=d.city%></h2>
                         <% d.activities.each do |a| %>
-                        <div class="activity-box">
-                            <h3><%= a.name%></h3><br>
-                            <%= a.description%>
-                        </div>
+                            <div class="activity-box">
+                                <h3><%= a.name%></h3><br>
+                                <%= a.description%>
+                            </div>
                         <%end%>
                     <h2>Transport</h2>
-                    <% d.transports.each do |t| %>
-                        <div class="activity-box">
-                            <h3><%= t.start_location %> to <%= t.end_location%></h3><br>
-                            <%= t.description%>
-                        </div>
+                        <% d.transports.each do |t| %>
+                            <div class="activity-box">
+                                <h3><%= t.start_location %> to <%= t.end_location%></h3><br>
+                                <%= t.description%>
+                            </div>
                         <%end%>
 
                     <div class="button-list">

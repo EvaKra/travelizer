@@ -3,6 +3,7 @@ class Destination < ApplicationRecord
     has_many :accommodations, dependent: :destroy
     has_many :activities, dependent: :destroy
     has_many :transports, dependent: :destroy
+    has_many_attached :photos
     geocoded_by :city
     after_validation :geocode, if: :will_save_change_to_city?
 end

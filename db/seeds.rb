@@ -53,12 +53,14 @@ itinerary.destinations.create!(country: "Cuba", city: "Havana", date: "03.05.201
 
 puts "Lebanon and Jordan"
 
-file = URI.open("https://images.unsplash.com/photo-1572704956971-74e41e37d1b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80")
-file_1 = URI.open("https://images.unsplash.com/photo-1521327895744-46e309d005b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+#file = URI.open("https://images.unsplash.com/photo-1572704956971-74e41e37d1b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80")
+#file_1 = URI.open("https://images.unsplash.com/photo-1521327895744-46e309d005b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
 itinerary = Itinerary.new(name: "Lebanon and Jordan", duration: 14, summary: "Despite the fact that Lebanon is one of the tiniest countries in the world, it also brags about being one of the most culturally diverse countries on the planet, where dozens of different religions coexist pacifically.
 With an ancient and fascinating history, the best nightlife in the Middle East, awesome cuisine and a liberal and westernized social life, sometimes you may forget that you are actually at the heart of the most turbulent region in the world.", user_id: default.id)
-itinerary.photos.attach(io: file, filename: 'itinerary.png', content_type: 'image/png')
-itinerary.photos.attach(io: file_1, filename: 'itinerary.png', content_type: 'image/png')
+itinerary.photos.attach(io: File.open('app/assets/images/Lebanon/Baalbek.JPG'), filename: 'itinerary.jpg', content_type: 'image/jpg')
+itinerary.photos.attach(io: File.open('app/assets/images/Lebanon/Beirut_Skyline.JPG'), filename: 'itinerary.jpg', content_type: 'image/jpg')
+itinerary.photos.attach(io: File.open('app/assets/images/Lebanon/Byblos.JPG'), filename: 'itinerary.jpg', content_type: 'image/jpg')
+#itinerary.photos.attach(io: file_1, filename: 'itinerary.png', content_type: 'image/png')
 itinerary.save!
 
 beirut = itinerary.destinations.create!(country: "Lebanon", city: "Beirut", date: "20.10.2019", description: "I love Beirut because of its deep, rich and contrasting history, composed of dozens of districts that differ massively from each other: the hipster district of Gemmayzeh, Hezbollah areas like Bourj al-Barajneh, the student neighborhood of Hamra, old Palestinian refugee camps, the Armenian district of Bourj Hammoud, several Christian areas and much, much more!")

@@ -20,8 +20,10 @@ puts "creating new itineraries"
 puts "Vietnam and Laos"
 
 file = URI.open("https://images.unsplash.com/photo-1508075679049-7e5dc384e98b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")
+file_1 = URI.open("https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
 itinerary = Itinerary.new(name: "Vietnam", duration: 20, user_id: default.id)
 itinerary.photos.attach(io: file, filename: 'itinerary.png', content_type: 'image/png')
+itinerary.photos.attach(io: file_1, filename: 'itinerary.png', content_type: 'image/png')
 itinerary.save!
 
 itinerary.destinations.create!(country: "Vietnam", city: "Ho Chi Minh City", date: "28.03.2018", description: "Vietnam's capital races to make up for time lost to the ravages of war and a government that as recently as the 1990s kept the outside world at bay. Its streets surge with scooters vying for right of way amid the din of constantly blaring horns, and all around layers of history reveal periods of French and Chinese occupation – offering a glimpse into the resilience of ambitious, proud Hanoians.")
@@ -35,8 +37,10 @@ itinerary.destinations.create!(country: "Laos", city: "Luang Prabang", date: "12
 puts "Cuba"
 
 file = URI.open("https://images.unsplash.com/photo-1584098181992-e7f35b51f85a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")
+file_1 = URI.open("https://images.unsplash.com/photo-1512843391726-648ce8e9dd6e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
 itinerary = Itinerary.new(name: "Cuba", duration: 18, summary:"Cuba is like a prince in a poor man’s coat: behind the sometimes shabby facades, gold dust lingers. It’s these rich dichotomies that make travel here the exciting, exhilarating roller-coaster ride it is. Trapped in a time warp and reeling from an economic embargo that has grated for more than half a century, this is a country where you can wave goodbye to everyday assumptions and expect the unexpected.", user_id: default.id)
 itinerary.photos.attach(io: file, filename: 'itinerary.png', content_type: 'image/png')
+itinerary.photos.attach(io: file_1, filename: 'itinerary.png', content_type: 'image/png')
 itinerary.save!
 
 itinerary.destinations.create!(country: "Cuba", city: "Havana", date: "19.04.2019", description: "")
@@ -50,9 +54,11 @@ itinerary.destinations.create!(country: "Cuba", city: "Havana", date: "03.05.201
 puts "Lebanon and Jordan"
 
 file = URI.open("https://images.unsplash.com/photo-1572704956971-74e41e37d1b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80")
+file_1 = URI.open("https://images.unsplash.com/photo-1521327895744-46e309d005b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
 itinerary = Itinerary.new(name: "Lebanon and Jordan", duration: 14, summary: "Despite the fact that Lebanon is one of the tiniest countries in the world, it also brags about being one of the most culturally diverse countries on the planet, where dozens of different religions coexist pacifically.
 With an ancient and fascinating history, the best nightlife in the Middle East, awesome cuisine and a liberal and westernized social life, sometimes you may forget that you are actually at the heart of the most turbulent region in the world.", user_id: default.id)
 itinerary.photos.attach(io: file, filename: 'itinerary.png', content_type: 'image/png')
+itinerary.photos.attach(io: file_1, filename: 'itinerary.png', content_type: 'image/png')
 itinerary.save!
 
 beirut = itinerary.destinations.create!(country: "Lebanon", city: "Beirut", date: "20.10.2019", description: "I love Beirut because of its deep, rich and contrasting history, composed of dozens of districts that differ massively from each other: the hipster district of Gemmayzeh, Hezbollah areas like Bourj al-Barajneh, the student neighborhood of Hamra, old Palestinian refugee camps, the Armenian district of Bourj Hammoud, several Christian areas and much, much more!")
@@ -109,8 +115,10 @@ dead_sea.transports.create!(transport_type: "Taxi", start_location:"Dead Sea", e
 puts "India - Golden Triangle and Kerala"
 
 file = URI.open("https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80")
+file_1 = URI.open("https://images.unsplash.com/photo-1442570468985-f63ed5de9086?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1093&q=80")
 itinerary = Itinerary.new(name: "India", duration: 19, user_id: default.id)
 itinerary.photos.attach(io: file, filename: 'itinerary.png', content_type: 'image/png')
+itinerary.photos.attach(io: file_1, filename: 'itinerary.png', content_type: 'image/png')
 itinerary.save!
 
 itinerary.destinations.create!(country: "India", city: "Delhi", date: "12.04.2017", description: "")

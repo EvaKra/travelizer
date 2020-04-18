@@ -7,7 +7,7 @@
 
 .title {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 70px;
     margin-bottom: 20px;
 }
 
@@ -39,14 +39,9 @@
     margin-top: 20px;
 }
 
-.activity-box {
-    margin-top: 55px;
-}
-
 .d-image-box {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 55px;
 }
 
 .destination-image {
@@ -55,4 +50,22 @@
 
 .destination-image img {
     width: 100%;
+}
+
+.activity-image {
+    width: 100%;
+}
+
+.activity-image img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.activity-box {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.category {
+    margin-top: 50px;
 }

@@ -32,18 +32,24 @@
                     <p><%= d.description%></p><br>
                         <div class="d-image-box">
                             <% d.photos.each do |photo|%>
-                                <div class="destination-image" ><%= cl_image_tag photo.key %>
+                                <div class="destination-image" >
+                                    <%= cl_image_tag photo.key %>
                                 </div>
                             <%end%>
                         </div>    
-                    <h2>Things to do in <%=d.city%></h2>
+                    <h2 class="category">Things to do in <%=d.city%></h2>
                         <% d.activities.each do |a| %>
                             <div class="activity-box">
                                 <h3><%= a.name%></h3><br>
+                                    <% a.photos.each do |photo|%>
+                                        <div class="activity-image"> 
+                                            <%= cl_image_tag photo.key %>
+                                        </div>
+                                    <%end%>
                                 <%= a.description%>
                             </div>
                         <%end%>
-                    <h2>Transport</h2>
+                    <h2 class="category">Transport</h2>
                         <% d.transports.each do |t| %>
                             <div class="activity-box">
                                 <h3><%= t.start_location %> to <%= t.end_location%></h3><br>

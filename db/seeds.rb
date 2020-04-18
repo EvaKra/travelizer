@@ -71,7 +71,25 @@ beirut.save!
 
 beirut.activities.create!(name: "Walking Tour", cost:20, description:"We did a 4 hour walking tour in Beirut with https://www.alternative-beirut.com/ . The tour started from the top of the St. Nicolas Staircase (NOT the St. Nicolas Church) in Gemmayzeh and was supposed to end at Bab Idriss, next to the old Holiday Inn Hotel. Due to the revolution protests at the time 
 we ended the tour at the Martyr Square. We learned a lot about Lebanon's culture and history. I would recommend doing a walking tour as you see so much more.")
-beirut.activities.create!(name: "The Pigeon Rocks", cost:0, description:"Located in the sea by the historical Raouche, the Pigeon Rocks are a Lebanese natural treasure. In the area surrounding the rocks, evidence of ancient human existence in Lebanon has been found. Walk on Raouche’s Corniche and marvel at these amazing sights.")
+pigeon_rocks = beirut.activities.new(name: "The Pigeon Rocks", cost:0, description:"Located in the sea by the historical Raouche, the Pigeon Rocks are a Lebanese natural treasure. In the area surrounding the rocks, evidence of ancient human existence in Lebanon has been found. Walk on Raouche’s Corniche and marvel at these amazing sights.")
+pigeon_rocks.photos.attach(io: File.open('app/assets/images/Lebanon/Beirut_Pigeon_Rocks.jpg'), filename: 'itinerary.jpg', content_type: 'image/jpg')
+pigeon_rocks.save!
+
+mar_mikael = beirut.activities.new(name: "Mar Mikhael", cost:0, description:"In the liberal north of the city, a new spirit has risen from the rubble that shows signs of Beirut reclaiming its former role as the fun and fashion capital of the Arab world. Centring around the Mar Mikhael district in the north east of the city, the main strip that forms the central artery through the district is packed with stylish bars, cafes, restaurants and independent boutiques.")
+mar_mikael.photos.attach(io: File.open('app/assets/images/Lebanon/mar_mikael_art.jpg'), filename: 'itinerary.jpg', content_type: 'image/jpg')
+mar_mikael.save!
+
+downtown = beirut.activities.new(name: "Downtown", cost:0, description:"Beirut has been called the “Paris of the Middle East“, and this is clear Downtown. It is modeled after 20th century European cities. This district is home to the Beirut Souks, Martyrs’ Square, a grand Mosque, and posh hotels. Downtown is as glamorous as it is refined, with brands like Chanel, Hermes, and Christian Louboutin gracing its sidewalks. You can also visit the national museum or stumble upon archaeological excavations.
+One of the most distinctive things about Downtown is its visual history. In the middle of all the posh stores and restaurants, several buildings reflect Beirut’s history of war. One example is the Dome Cinema, which stands untouched by developers, reflecting an architectural vision that was never realized.")
+downtown.photos.attach(io: File.open('app/assets/images/Lebanon/Beirut_Martyr_Square.JPG'), filename: 'itinerary.jpg', content_type: 'image/jpg')
+downtown.save!
+
+hamra = beirut.activities.new(name: "Hamra", cost:0, description:"Because of all the historical cafes and theaters, Hamra was once the intellectual center of Beirut. While that has lessened, the district still has a cosmopolitan vibe, and is definitely the place to hang out for people interested in culture. Home to the American University of Beirut, the street is never empty of pedestrians. The atmosphere is a liberal haven in the middle of a country torn by political difference. Hamra is no stranger to sudden street events, and before the civil war was known as Beirut’s “Champs Elysees”. Today, it is full of pubs and coffee shops that welcome people of all sorts, and still stands as a testament to Beirut’s rich cultural history.")
+hamra.photos.attach(io: File.open('app/assets/images/Lebanon/Beirut_Skyline.JPG'), filename: 'itinerary.jpg', content_type: 'image/jpg')
+hamra.save!
+
+
+
 beirut.transports.create!(transport_type: "Uber", start_location:"Beirut", end_location:"Byblos", description:"We took an Uber to get from Beirut to Byblos. Due to the revolution the main motorway was closed off every 5km which made it very much impossible to move fast. The journey from Beirut to Byblos usually takes about 30min. That day it took us 2 hours. However, using an Uber was super easy and also a very cheap option.")
 
 byblos = itinerary.destinations.create!(country: "Lebanon", city: "Byblos", date: "22.10.2019", description: "With 8,000 years of history, Byblos is considered one of the oldest inhabited cities in the world and the place where the first inscriptions containing the modern western alphabet were found. Byblos derives from the Greek word bublos, meaning papyrus, as the town was the stopping place for the Phoenicians who shipped papyrus from Egypt. Besides a super interesting museum that explains the history of the creation of the alphabet, in Byblos you can also visit a crusader castle from the XII century, built by the Franks, a restored souq, a beautiful Mediterranean harbor full of restaurants, where you can eat seafood feasts, and some archeological sites containing mainly Roman ruins but also from many other civilizations, from the Neolithic settlements 8,000 years ago to Phoenician, Egyptian, Greek and Ottoman.")

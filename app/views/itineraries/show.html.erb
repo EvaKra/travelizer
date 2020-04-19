@@ -30,9 +30,9 @@
                         <%= d.country%> 
                     </div>
                     <p><%= d.description%></p><br>
-                        <div class="d-image-box">
+                        <div class="d-image-box row">
                             <% d.photos.each do |photo|%>
-                                <div class="destination-image" >
+                                <div class="destination-image col-12 col-lg-6" >
                                     <%= cl_image_tag photo.key %>
                                 </div>
                             <%end%>

@@ -15,6 +15,8 @@
     margin-top: 40px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 0px;
+    justify-content: space-evenly;
 }
 
 .carousel-inner>.item {
@@ -27,6 +29,8 @@
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 40px;
+    margin-top: 30px;
+    justify-content: space-evenly;
 }
 
 .name-duration {

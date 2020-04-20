@@ -1,4 +1,17 @@
-    <div class="home-background">
+<div class="home-background">
+<%# <div class="container"> %>
+    <% if !user_signed_in? %>
+        <div class="textbox_buttons_row row">
+            <div class="textbox_buttons_column col-12 col-lg-6">
+            <div class="textbox">
+            Recycling can be confusing but it doesn't have to be.<br>
+            Sign in and sort it out!
+            </div>
+            <%= link_to "Sign up", new_user_registration_path, class: "search-button"%>
+            <%= link_to "Sign in", new_user_session_path, class: "search-button" %>
+            </div>
+        </div>
+        <% else %>
         <div class="form-box">
             <p>Plan your next trip!</p>
             <div class="input-field">
@@ -14,4 +27,7 @@
             </div>
             <% end %>
         </div>
-    </div>    
+    <%end%>
+</div>   
+<%# </div>  %>
+

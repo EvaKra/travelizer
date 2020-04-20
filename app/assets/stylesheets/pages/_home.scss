@@ -28,4 +28,21 @@
     border: none;
     padding: 7px 10px 7px 10px;
     border-radius: 5px;
+    margin-top: 10px;
+    color: white;
+}
+
+.search-button:hover {
+        text-decoration: none;
+        color: black;
+}
+
+.textbox_buttons_row {
+    margin-top: 190px;    
+    justify-content: center;
+}
+
+.textbox_buttons_column {
+    display: flex;
+    flex-direction: column;
 }

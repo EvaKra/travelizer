@@ -1,6 +1,6 @@
 <div class="login-background">
   <div class="form row">
-  <h2>Log in</h2>
+    <h2>Log in</h2>
     <div class="form-box-login col-10 col-lg-6">
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
@@ -19,7 +19,8 @@
           </div>
         <% end %>
 
-        <div class="password-recovery"><%= render "devise/shared/links" %>
+        <div class="password-recovery">
+            <%= render "devise/shared/links" %>
         </div>
     </div>    
   </div>

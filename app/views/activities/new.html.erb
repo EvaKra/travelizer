@@ -1,7 +1,11 @@
-<%= simple_form_for [@itinerary, @destination, @activity] do |f| %>
-  <%= f.input :name%>
-  <%= f.input :description%>
-  <%= f.input :cost%>
-  <%= f.submit %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-<% end %>
+<div class="container">
+  <div class="new-form">
+    <%= simple_form_for [@itinerary, @destination, @activity] do |f| %>
+      <%= f.input :name%>
+      <%= f.input :description%>
+      <%= f.input :cost%>
+      <%= f.submit %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+    <% end %>
+  </div>
+</div>

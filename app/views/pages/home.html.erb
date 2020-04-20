@@ -4,11 +4,14 @@
         <div class="textbox_buttons_row row">
             <div class="textbox_buttons_column col-12 col-lg-6">
             <div class="textbox">
-            Recycling can be confusing but it doesn't have to be.<br>
-            Sign in and sort it out!
+            <p>
+            Hi there!<br>
+            <br>
+            We have put together a library of travel itineraries for you! Here you can find inspiration for your next trip and share your own itineraries with fellow travellers!
+            </p>
             </div>
-            <%= link_to "Sign up", new_user_registration_path, class: "search-button"%>
-            <%= link_to "Sign in", new_user_session_path, class: "search-button" %>
+            <%= link_to "Log in", new_user_session_path, class: "sign-in-button" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "sign-up-button"%>
             </div>
         </div>
         <% else %>

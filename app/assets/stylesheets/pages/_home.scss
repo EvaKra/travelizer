@@ -15,7 +15,7 @@
 
 .home-background {
     padding: 20px 0;
-    min-height: calc(100vh - 0px);
+    min-height: calc(105vh - 0px);
     background: linear-gradient(rgba(0,1,1,0),rgba(0,1,1,0.2)), url('https://images.unsplash.com/photo-1519885277449-12eee5564d68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80');
     background-position: center;
     background-size: cover;
@@ -38,11 +38,52 @@
 }
 
 .textbox_buttons_row {
-    margin-top: 190px;    
+    margin-top: 120px;    
     justify-content: center;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .textbox_buttons_column {
     display: flex;
     flex-direction: column;
 }
+
+.sign-up-button{
+    background-color: lightgray;
+    box-shadow: 2px 2px 3px #444A51;
+    border: none;
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.sign-up-button:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.sign-in-button {
+    background-color: salmon;
+    box-shadow: 2px 2px 3px #444A51;
+    border: none;
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.sign-in-button:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.login-background {
+    padding: 20px 0;
+    min-height: calc(105vh - 0px);
+    background: linear-gradient(rgba(0,1,1,0),rgba(0,1,1,0.2)), url('https://images.unsplash.com/photo-1519885277449-12eee5564d68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80');
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+  }

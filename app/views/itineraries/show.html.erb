@@ -57,17 +57,19 @@
                             </div>
                         <%end%>
 
+                    <% if @itinerary.user == current_user %>    
                     <div class="button-list">
                         <p>Add more information:</P>
                         <%= link_to "Transport", new_itinerary_destination_transport_path(@itinerary, d) %>
                         <%= link_to "Accommodation", new_itinerary_destination_accommodation_path(@itinerary, d) %>
                         <%= link_to "Activity", new_itinerary_destination_activity_path(@itinerary, d)%>
                     </div>
+                    <%end%>
                 </div>
             <% end %>
         </div>
     </div>
-
-    <%= link_to "Add destination", new_itinerary_destination_path(@itinerary) %>
-    
+    <% if @itinerary.user == current_user %>
+        <%= link_to "Add destination", new_itinerary_destination_path(@itinerary) %>
+    <% end %>    
 </div>

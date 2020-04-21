@@ -1,5 +1,7 @@
 <div class="container">
-<h1 style="margin-top: 70px">My itineraries</h1>
+    <div class="my-itinerary-title">
+        <h1>My itineraries</h1>
+    </div>
     <div class="cards-container">
         <% if current_user.itineraries.any? %>
             <% current_user.itineraries.each do |itinerary| %>

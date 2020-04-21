@@ -1,8 +1,7 @@
 <div class="container">
-    <div class="cards-container row">
+    <div class="cards-container">
             <% @itineraries.each do |itinerary|%>
-                
-                    <div class="itinerary-card col-11 col-md-5 col-lg-3">
+                    <div class="itinerary-card">
                         <div id="carousel_<%= itinerary.id %>" class="carousel slide" data-interval="false">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel_<%= itinerary.id %>" data-slide-to="0" class="active"></li>

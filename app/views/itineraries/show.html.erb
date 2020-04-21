@@ -37,6 +37,7 @@
                                 </div>
                             <%end%>
                         </div>    
+                    <% if d.activities.any?%>
                     <h2 class="category">Things to do in <%=d.city%></h2>
                         <% d.activities.each do |a| %>
                             <div class="activity-box">
@@ -49,6 +50,8 @@
                                 <%= a.description%>
                             </div>
                         <%end%>
+                    <%end%>  
+                    <% if d.transports.any? %>  
                     <h2 class="category">Transport</h2>
                         <% d.transports.each do |t| %>
                             <div class="activity-box">
@@ -56,20 +59,20 @@
                                 <%= t.description%>
                             </div>
                         <%end%>
-
+                    <%end%>
                     <% if @itinerary.user == current_user %>    
-                    <div class="button-list">
-                        <p>Add more information:</P>
-                        <%= link_to "Transport", new_itinerary_destination_transport_path(@itinerary, d) %>
-                        <%= link_to "Accommodation", new_itinerary_destination_accommodation_path(@itinerary, d) %>
-                        <%= link_to "Activity", new_itinerary_destination_activity_path(@itinerary, d)%>
-                    </div>
+                        <div class="button-list">
+                            <p>Add more information:</P>
+                            <%= link_to "Transport", new_itinerary_destination_transport_path(@itinerary, d) %>
+                            <%= link_to "Accommodation", new_itinerary_destination_accommodation_path(@itinerary, d) %>
+                            <%= link_to "Activity", new_itinerary_destination_activity_path(@itinerary, d)%>
+                        </div>
                     <%end%>
                 </div>
             <% end %>
         </div>
     </div>
-    <% if @itinerary.user == current_user %>
-        <%= link_to "Add destination", new_itinerary_destination_path(@itinerary) %>
-    <% end %>    
+        <% if @itinerary.user == current_user %>
+            <%= link_to "Add destination", new_itinerary_destination_path(@itinerary) %>
+        <% end %>    
 </div>

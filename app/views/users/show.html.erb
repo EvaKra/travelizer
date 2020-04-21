@@ -1,9 +1,10 @@
 <div class="container">
+<% if current_user.itineraries.any? %>
     <div class="my-itinerary-title">
         <h1>My itineraries</h1>
     </div>
     <div class="cards-container">
-        <% if current_user.itineraries.any? %>
+       
             <% current_user.itineraries.each do |itinerary| %>
                 <div class="itinerary-card">
                     <div id="carousel_<%= itinerary.id %>" class="carousel slide" data-interval="false">
@@ -37,7 +38,10 @@
                 </div>             
             <%end%>
         <%else%>
-            <p>Add your first itinerary!</p>
+            <div class="no-itinerary">
+                <h1>Hi <%= current_user.email %>!</h1> <br>
+                <%= link_to "Add your first itinerary", new_itinerary_path%>
+            </div>
         <%end%>
     </div>    
 </div>

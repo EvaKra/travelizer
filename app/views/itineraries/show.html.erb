@@ -3,20 +3,17 @@
         <h1><%= @itinerary.name %></h1>
         <p><%= @itinerary.summary %></p>
     </div>
-
-
     <div id="map"
         style="width: 100%; height: 400px;"
         data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
     <div class="bootstrap-tabs">
         <ul class="nav nav-tabs" id="myTab" role="tablist">    
             <% @itinerary.destinations.each do |d| %>
                 <li class="nav-item">
-                <a class="nav-link <%= 'active' if @itinerary.destinations.first == d %>" id="<%= d.city.downcase.gsub(/\s+/, "") %>-tab" <%= 'aria-selected="true"' if @destinations.first == d %> href="#<%= d.city.downcase.gsub(/\s+/, "") %>" data-toggle="tab" role="tab" aria-controls="<%= d.city.downcase.gsub(/\s+/, "") %>"><%= d.city %>
-                </a>
+                    <a class="nav-link <%= 'active' if @itinerary.destinations.first == d %>" id="<%= d.city.downcase.gsub(/\s+/, "") %>-tab" <%= 'aria-selected="true"' if @destinations.first == d %> href="#<%= d.city.downcase.gsub(/\s+/, "") %>" data-toggle="tab" role="tab" aria-controls="<%= d.city.downcase.gsub(/\s+/, "") %>"><%= d.city %>
+                    </a>
                 </li>
             <% end %>
         </ul>
@@ -30,15 +27,15 @@
                         <%= d.country%> 
                     </div>
                     <p><%= d.description%></p><br>
-                        <div class="d-image-box row">
-                            <% d.photos.each do |photo|%>
-                                <div class="destination-image col-12 col-lg-6" >
-                                    <%= cl_image_tag photo.key %>
-                                </div>
-                            <%end%>
-                        </div>    
+                    <div class="d-image-box row">
+                        <% d.photos.each do |photo|%>
+                            <div class="destination-image col-12 col-lg-6" >
+                                <%= cl_image_tag photo.key %>
+                            </div>
+                        <%end%>
+                    </div>    
                     <% if d.activities.any?%>
-                    <h2 class="category">Things to do in <%=d.city%></h2>
+                        <h2 class="category">Things to do in <%=d.city%></h2>
                         <% d.activities.each do |a| %>
                             <div class="activity-box">
                                 <h3><%= a.name%></h3><br>

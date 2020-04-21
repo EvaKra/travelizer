@@ -1,1 +1,9 @@
-<p><%= destination.city%></p>
+<div class="marker-container">
+    <% if destination.photos.any? %>
+        <h4><%= destination.city%></h4>
+        <%= cl_image_tag destination.photos.first.key %>
+    <%else%>
+        <p><%= destination.city%></p>
+    <%end%>
+
+</div>

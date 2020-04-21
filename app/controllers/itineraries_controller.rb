@@ -10,10 +10,9 @@ class ItinerariesController < ApplicationController
 
     def show
         @itinerary = Itinerary.find(params[:id])
-        @destinations = @itinerary.destinations
 
         @destinations = Destination.geocoded # returns destinations with coordinates
-    
+        @destinations = @itinerary.destinations
         @markers = @destinations.map do |destination|
           {
             lat: destination.latitude,

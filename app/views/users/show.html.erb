@@ -1,11 +1,16 @@
 <div class="container">
-<%# <%= current_user.avatar %> %>
-<% if current_user.itineraries.any? %>
-    <div class="my-itinerary-title">
-        <h1>My itineraries</h1>
-    </div>
-    <div class="cards-container">
-       
+    <div class="greeting">
+        <h1>Hi, I'm <%= current_user.first_name %>!</h1>
+        <% if current_user.description? %>
+            <%= current_user.description%>
+        <%end%>
+    </div>    
+    <%# <%= current_user.avatar %>
+    <% if current_user.itineraries.any? %>
+        <div class="my-itinerary-title">
+            <h1>My itineraries</h1>
+        </div>
+        <div class="cards-container">
             <% current_user.itineraries.each do |itinerary| %>
                 <div class="itinerary-card">
                     <div id="carousel_<%= itinerary.id %>" class="carousel slide" data-interval="false">
@@ -38,11 +43,10 @@
                     </div>  
                 </div>             
             <%end%>
-        <%else%>
-            <div class="no-itinerary">
-                <h1>Hi <%= current_user.email %>!</h1> <br>
-                <%= link_to "Add your first itinerary", new_itinerary_path%>
-            </div>
-        <%end%>
-    </div>    
+    <%else%>
+        <div class="no-itinerary">
+            <%= link_to "Add your first itinerary", new_itinerary_path%>
+        </div>
+    <%end%>
+    </div>
 </div>

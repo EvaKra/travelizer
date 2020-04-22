@@ -13,7 +13,7 @@ Destination.destroy_all
 User.destroy_all
 puts "creating new users"
 user = User.create(first_name: "Eva", last_name: "Kramer", description:"I live in London and work as a web developer. I love travelling whenever I can. I hope you like the itinerary!", email: "eva@gmail.com", password: "123456")
-default = User.create(first_name: "Admin", last_name: "Test", description:"I currently work on this website and try to figure out if everything works the way it should :)", email: "default@gmail.com", password: "123456")
+default = User.create(first_name: "Eva", last_name: "Test", description:"I currently work on this website and try to figure out if everything works the way it should :)", email: "default@gmail.com", password: "123456")
 
 puts "creating new itineraries"
 

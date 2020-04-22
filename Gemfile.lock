@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/mdeering/gravatar_image_tag.git
+  revision: c02351f7d6649e2346394e33164a7154e671ec19
+  specs:
+    gravatar_image_tag (1.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -121,6 +127,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
     mimemagic (0.3.4)
+    mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
@@ -254,8 +261,10 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass (~> 5.12.0)
   geocoder
+  gravatar_image_tag!
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
+  mini_magick (~> 4.10, >= 4.10.1)
   pg (~> 0.21)
   pg_search (~> 2.3.0)
   pry-byebug

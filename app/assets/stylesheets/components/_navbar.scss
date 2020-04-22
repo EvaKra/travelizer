@@ -6,7 +6,11 @@
   width: 100%;
 }
 
-
+.rounded-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;

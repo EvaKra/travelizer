@@ -77,7 +77,7 @@
     width: 100%;
 }
 
-.greeting {
+.left-box-show {
     margin-top: 50px;
 }
 
@@ -106,3 +106,30 @@
       }
 }
 
+.greeting {
+
+}
+
+.profile {
+    margin-top: 100px;
+    display: flex;
+    
+}
+
+.left-box-profile {
+    min-width: 35%;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: salmon;
+}
+
+.right-box-profile {
+    padding: 20px 10px;
+}
+
+.avatar-profile-box {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

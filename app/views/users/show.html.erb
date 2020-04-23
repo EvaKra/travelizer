@@ -1,52 +1,67 @@
 <div class="container">
-    <div class="greeting">
-        <h1>Hi, I'm <%= @user.first_name %>!</h1>
-        <% if @user.description? %>
-            <%= @user.description%>
-        <%end%>
-    </div>    
-    <%# <%= current_user.avatar %>
-    <% if @user.itineraries.any? %>
-        <div class="my-itinerary-title">
-            <h1>My itineraries</h1>
-        </div>
-        <div class="cards-container">
-            <% @user.itineraries.each do |itinerary| %>
-                <div class="itinerary-card">
-                    <div id="carousel_<%= itinerary.id %>" class="carousel slide" data-interval="false">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel_<%= itinerary.id %>" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel_<%= itinerary.id %>" data-slide-to="1"></li>
-                            <li data-target="#carousel_<%= itinerary.id %>" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <% itinerary.photos.each_with_index do |photo, index| %>
-                            <div class="carousel-item <%= 'active' if index.zero? %>">
-                                <%= cl_image_tag(photo.key, class: "d-block w-100" ) %>
-                            </div>
-                            <% end %>
-                        </div>
-                        <a class="carousel-control-prev" href="#carousel_<%= itinerary.id %>" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel_<%= itinerary.id %>" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+    <div class="profile">
+        <div class="left-box-profile">
+            <div class="greeting">
+                <h1>Hi, I'm <%= @user.first_name %>!</h1>
+            </div>
+            <div class="avatar-profile-box">
+                <% if @user.avatar.attached? %>
+                     <%= cl_image_tag @user.avatar.key, class:"avatar-profile"%>
+                <%else%>
+                    <div class="avatar-icon">
+                        <i class="fas fa-user-circle"></i>
                     </div>
-                    <div class="name-duration">
-                        <div class="i-name"><%= link_to itinerary.name, itinerary_path(itinerary) %>
-                        </div>
-                        <div class="duration"><%= itinerary.duration %> days
-                        </div>
-                    </div>  
-                </div>             
+                <%end%> 
+            </div>
+            <div class="description-box">
+                <% if @user.description? %>
+                   <p> <%= @user.description%></p>
+                <%end%>
+            </div>    
+        </div>    
+        <div class="right-box-profile">
+            <% if @user.itineraries.any? %>
+                <div class="itinerary-title-profile">
+                    <h1>My Itineraries</h1>
+                </div>
+                <div class="cards-container">
+                    <% @user.itineraries.each do |itinerary| %>
+                        <div class="itinerary-card">
+                            <div id="carousel_<%= itinerary.id %>" class="carousel slide" data-interval="false">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel_<%= itinerary.id %>" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel_<%= itinerary.id %>" data-slide-to="1"></li>
+                                    <li data-target="#carousel_<%= itinerary.id %>" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <% itinerary.photos.each_with_index do |photo, index| %>
+                                    <div class="carousel-item <%= 'active' if index.zero? %>">
+                                        <%= cl_image_tag(photo.key, class: "d-block w-100" ) %>
+                                    </div>
+                                    <% end %>
+                                </div>
+                                <a class="carousel-control-prev" href="#carousel_<%= itinerary.id %>" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel_<%= itinerary.id %>" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            <div class="name-duration">
+                                <div class="i-name"><%= link_to itinerary.name, itinerary_path(itinerary) %>
+                                </div>
+                                <div class="duration"><%= itinerary.duration %> days
+                                </div>
+                            </div>  
+                        </div>             
+                    <%end%>
+            <%else%>
+                <div class="no-itinerary">
+                    <%= link_to "Add your first itinerary", new_itinerary_path%>
+                </div>
             <%end%>
-    <%else%>
-        <div class="no-itinerary">
-            <%= link_to "Add your first itinerary", new_itinerary_path%>
         </div>
-    <%end%>
     </div>
 </div>

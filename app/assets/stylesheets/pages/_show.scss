@@ -80,3 +80,29 @@
 .greeting {
     margin-top: 50px;
 }
+
+.author-avatar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: baseline;
+}
+
+.avatar-box {
+    margin-right: 10px;
+}
+
+.author {
+    font-size: 12px;
+    color: darkgrey;
+}
+
+.author a {
+    color: black;
+
+    &:hover {
+        color: salmon;
+        text-decoration: none;
+      }
+}
+

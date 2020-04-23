@@ -28,7 +28,7 @@
                 </div>
             <% if @user.itineraries.any? %>
                 
-                <div class="cards-container">
+                <div class="cards-container-profile">
                     <% @user.itineraries.each do |itinerary| %>
                         <div class="itinerary-card">
                             <div id="carousel_<%= itinerary.id %>" class="carousel slide" data-interval="false">
@@ -65,7 +65,7 @@
                 <div class="no-itinerary">
                 <% if current_user == @user %>
                     <p>You haven't got any itineraries yet. Would you like to add one?</p><br>
-                    <%= link_to "Let's get started", new_itinerary_path%>
+                    <%= link_to "Let's get started", new_itinerary_path,  class: "search-button"%>
                 <% else %>
                     <p><%= @user.name%> has not shared any itineraries yet but watch this space :)</p>
                 <% end %>

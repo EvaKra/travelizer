@@ -8,10 +8,13 @@
                 <% if @user.avatar.attached? %>
                      <%= cl_image_tag @user.avatar.key, class:"avatar-profile"%>
                 <%else%>
-                    <div class="avatar-icon">
+                    <div class="avatar-profile">
                         <i class="fas fa-user-circle"></i>
                     </div>
                 <%end%> 
+            </div>
+            <div class="join-date">
+                <p>Joined in <%= @user.created_at.year %></p>
             </div>
             <div class="description-box">
                 <% if @user.description? %>
@@ -20,10 +23,11 @@
             </div>    
         </div>    
         <div class="right-box-profile">
-            <% if @user.itineraries.any? %>
-                <div class="itinerary-title-profile">
+        <div class="itinerary-title-profile">
                     <h1>My Itineraries</h1>
                 </div>
+            <% if @user.itineraries.any? %>
+                
                 <div class="cards-container">
                     <% @user.itineraries.each do |itinerary| %>
                         <div class="itinerary-card">
@@ -59,9 +63,15 @@
                     <%end%>
             <%else%>
                 <div class="no-itinerary">
-                    <%= link_to "Add your first itinerary", new_itinerary_path%>
+                <% if current_user == @user %>
+                    <p>You haven't got any itineraries yet. Would you like to add one?</p><br>
+                    <%= link_to "Let's get started", new_itinerary_path%>
+                <% else %>
+                    <p><%= @user.name%> has not shared any itineraries yet but watch this space :)</p>
+                <% end %>
                 </div>
             <%end%>
+            </div>
         </div>
     </div>
 </div>

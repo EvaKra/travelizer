@@ -15,7 +15,8 @@
             </div>
         </div>
         <% else %>
-        <div class="form-box">
+        <div class="form-box col-12 col-lg-6">
+            <h1>Hi <%= current_user.first_name%>!</h1>
             <p>Plan your next trip!</p>
             <div class="input-field">
                 <%= form_tag itineraries_path, method: :get do %>

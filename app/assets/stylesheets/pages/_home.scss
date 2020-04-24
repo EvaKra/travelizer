@@ -1,21 +1,25 @@
 // Specific CSS for your home-page
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}
+
 h1 {
     font-size: 2rem;
     font-weight: bolder;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h2 {
     font-size: 1.5rem;
     font-weight: bolder;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h3 {
     font-size: 1.17em;
     font-weight: bolder;
-}
-
-.body {
-    background-color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .input-field {

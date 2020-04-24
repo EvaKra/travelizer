@@ -1,11 +1,13 @@
 <div class="container">
-  <div class="new-form">
-    <%= simple_form_for(@itinerary) do |f| %>
-      <%= f.input :name, label:"Title of Itinerary" %>
-      <%= f.input :duration, label: "Number of days" %>
-      <%= f.input :summary, label: "Give us a short summary of your trip" %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-      <%= f.submit %>
-    <% end %>
-  </div>
+  <div class="new-form-box row">
+    <div class="new-form col-12 col-lg-8">
+      <%= simple_form_for(@itinerary) do |f| %>
+        <%= f.input :name, label:"Title of Itinerary" %>
+        <%= f.input :duration, label: "Number of days" %>
+        <%= f.input :summary, label: "Give us a short summary of your trip" %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div> 
 </div>

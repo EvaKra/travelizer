@@ -1,4 +1,19 @@
 // Specific CSS for your home-page
+h1 {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+h3 {
+    font-size: 1.17em;
+    font-weight: bolder;
+}
+
 .body {
     background-color: white;
 }
@@ -23,7 +38,7 @@
   }
 
 .search-button {
-    background-color: salmon;
+    background-color: rgb(251,150,139);
     box-shadow: 2px 2px 3px #444A51;
     border: none;
     padding: 7px 10px 7px 10px;
@@ -33,8 +48,9 @@
 }
 
 .search-button:hover {
-        text-decoration: none;
-        color: black;
+    background-color: rgb(250, 128, 114);
+    text-decoration: none;
+    color: white;
 }
 
 .textbox_buttons_row {
@@ -59,12 +75,13 @@
 }
 
 .sign-up-button:hover {
+    background-color: rgb(201, 201, 201);
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .sign-in-button {
-    background-color: salmon;
+    background-color: rgb(251,150,139);
     box-shadow: 2px 2px 3px #444A51;
     border: none;
     padding: 7px 10px 7px 10px;
@@ -75,8 +92,9 @@
 }
 
 .sign-in-button:hover {
+    background-color: rgb(250, 128, 114);
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .login-background {

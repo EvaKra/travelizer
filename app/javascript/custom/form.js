@@ -20,3 +20,21 @@ textarea.addEventListener("keyup", (event) => {
 });
 
 
+const realFileBtn = document.getElementById("itinerary_photos");
+const customBtn = document.getElementById("custom-button");
+const customTxt = document.getElementById("custom-text");
+
+customBtn.addEventListener("click", function() {
+  realFileBtn.click();
+});
+
+realFileBtn.addEventListener("change", function() {
+  if (realFileBtn.files) {
+    customTxt.innerHTML = `${realFileBtn.files.length} attached`;
+  } else {
+    customTxt.innerHTML = "No file chosen, yet.";
+  }
+});
+
+
+

@@ -14,8 +14,8 @@ textarea.addEventListener("keyup", (event) => {
 
         // const charsLeft = maxLength - currentLength;
         // document.getElementById('charcount');
-        charcount.innerHTML = `${maxLength - currentLength}/${maxLength} characters left`;
-        console.log(`${maxLength - currentLength}/${maxLength} characters left`);
+        charcount.innerHTML = `${maxLength - currentLength} characters left`;
+        console.log(`${maxLength - currentLength} characters left`);
     }
 });
 

@@ -8,5 +8,15 @@
 
 #charcount {
     font-size: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: end;
 } 
+
+.upload-photo {
+    border: 1px solid #d3d3d3;
+    padding: 13px 15px;
+    cursor: pointer;
+    font-weight: 500;
+    background: white;
+    border-radius: 5px;
+  }

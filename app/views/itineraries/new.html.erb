@@ -2,12 +2,16 @@
   <div class="new-form-box row">
     <div class="new-form col-12 col-lg-8">
       <%= simple_form_for(@itinerary) do |f| %>
-        <%= f.input :name, label:"Title of Itinerary" %>
-        <%= f.input :duration, label: "Number of days" %>
-        <%= f.input :summary, label: "Give us a short summary of your trip" %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-        <%= f.submit %>
+        <%= f.input :name, label:"1. Title of Itinerary" %>
+        <%= f.input :duration, label: "2. Number of days" %>
+        <%= f.input :summary, maxlength:"500", label: "3. Give us a short summary of your trip" %>
+        <p id="charcount">max 500 characters</p>
+        <br>
+        <%= f.input :photos, label: "4. Bring your itinerary to life and add your favorite ohotos. These will be displayed in the photo carousel.", as: :file, input_html: { multiple: true }  %>
+        <%= f.submit class:"search-button" %>
       <% end %>
     </div>
   </div> 
 </div>
+
+

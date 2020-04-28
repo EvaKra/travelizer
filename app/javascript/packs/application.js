@@ -1,6 +1,7 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
+require("custom/form")
 
 import "bootstrap";
 //import { initMapbox } from '../plugins/init_mapbox';

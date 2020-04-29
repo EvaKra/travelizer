@@ -5,7 +5,6 @@ class DestinationsController < ApplicationController
 
       def show
         @destination = Destination.find(params[:id])
-        
       end
 
       def new
@@ -24,6 +23,21 @@ class DestinationsController < ApplicationController
           else 
             render :new
           end
+      end
+
+      def edit
+        @destination = Destination.find(params[:id])
+        @itinerary = Itinerary.find(params[:itinerary_id])
+        @destination.itinerary = @itinerary
+      end
+
+      def update
+        @destination.update(destination_params)
+        if @destination.save
+          redirect_to itinerary_path(@itinerary)
+        else
+          render :edit
+        end
       end
 
       private 

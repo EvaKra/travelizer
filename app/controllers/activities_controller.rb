@@ -18,6 +18,27 @@ class ActivitiesController < ApplicationController
         end
     end
 
+    def edit
+        @itinerary = Itinerary.find(params[:itinerary_id])
+        @destination = Destination.find(params[:destination_id])
+        @activity = Activity.find(params[:id])
+    end
+
+    def update
+        @itinerary = Itinerary.find(params[:itinerary_id])
+        @destination = Destination.find(params[:destination_id])
+        @activity = Activity.find(params[:id]) 
+        @activity.destination = @destination
+        @destination.itinerary = @itinerary
+
+        @activity.update(activity_params)
+        if @activity.save
+          redirect_to itinerary_path(@itinerary)
+        else
+          render :edit
+        end
+    end
+
     private
 
     def activity_params

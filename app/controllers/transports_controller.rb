@@ -18,6 +18,26 @@ class TransportsController < ApplicationController
         end
     end
 
+    def edit
+        @itinerary = Itinerary.find(params[:itinerary_id])
+        @destination = Destination.find(params[:destination_id])
+        @transport = Transport.find(params[:id])
+    end
+
+    def update
+        @itinerary = Itinerary.find(params[:itinerary_id])
+        @destination = Destination.find(params[:destination_id])
+        @transport = Transport.find(params[:id]) 
+        @transport.destination = @destination
+        @destination.itinerary = @itinerary
+
+        @transport.update(transport_params)
+        if @transport.save
+          redirect_to itinerary_path(@itinerary)
+        else
+          render :edit
+        end
+    end
 
     private
     

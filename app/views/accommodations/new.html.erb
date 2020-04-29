@@ -3,7 +3,7 @@
     <%= simple_form_for [@itinerary, @destination, @accommodation] do |f| %>
       <%= f.input :name%>
       <%= f.input :address%>
-      <%= f.input :type%>
+      <%= f.input :accommodation_type%>
       <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
       <%= f.submit %>
     <% end %>

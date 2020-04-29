@@ -85,7 +85,13 @@
                     <h2 class="category">Transport</h2>
                         <% d.transports.each do |t| %>
                             <div class="activity-box">
-                                <h3><%= t.start_location %> to <%= t.end_location%></h3><br>
+                                <h3>
+                                    <%= t.start_location %> to <%= t.end_location%>
+                                    <% if current_user == @itinerary.user %>
+                                        <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_destination_transport_path(@itinerary, d, t)%>
+                                    <%end%>
+                                </h3>
+                                <br>
                                 <%= t.description%>
                             </div>
                         <%end%>

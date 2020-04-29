@@ -18,6 +18,27 @@ class AccommodationsController < ApplicationController
         end
     end
 
+    def edit
+        @accommodation = Accommodation.find(params[:id])
+        @destination = Destination.find(params[:destination_id])
+        @itinerary = Itinerary.find(params[:itinerary_id])
+    end
+
+    def update
+        @accommodation = Accommodation.find(params[:id])
+        @destination = Destination.find(params[:destination_id])
+        @itinerary = Itinerary.find(params[:itinerary_id])
+        @destination.itinerary = @itinerary
+        @accommodation.destination = @destination
+
+        @accommodation.update(accommodation_params)
+        if @accommodation.save
+            redirect_to itinerary_path(@itinerary)
+        else
+            render :edit
+        end
+    end
+
     private 
 
     def accommodation_params

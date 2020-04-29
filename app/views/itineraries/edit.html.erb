@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="new-form-box row">
+    <div class="new-form col-12 col-lg-8">
+      <%= simple_form_for(@itinerary) do |f| %>
+        <%= f.input :name, label:"1. Title of Itinerary" %>
+        <%= f.input :duration, label: "2. Number of days", input_html: { min: '1', step: '1' } %>
+        <%= f.input :summary, maxlength:"700", label: "3. Give us a short summary of your trip" %>
+        <p id="charcount">max 700 characters</p>
+        <p>4. Bring your itinerary to life by adding a few photos. The photos you upload here will be added to the photo carousel.</p>
+        <button type="button" id="custom-button">📷 Upload photos</button>
+        <span id="custom-text">No photo chosen, yet.</span>
+        <%= f.input :photos, as: :file, label: false, input_html: { multiple: true }%>
+        <%= f.submit class:"search-button", style:"margin: 0px 0px 50px 0px;" %>
+      <% end %>
+    </div>
+  </div> 
+</div>

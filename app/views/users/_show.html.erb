@@ -1,7 +1,7 @@
 <div class="description-box">
-        <% if @user.description? %>
-            <p id="description-event"> <%= @user.description%></p>
-        <%end%>
-            <% if current_user == @user %>
-                <span style="font-size: 16px;"><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_user_path(@user), id:"user-edit", remote: true%></span>
-        <%end%>             
+    <% if @user.description? %>
+        <p id="description-event"> <%= @user.description%></p>
+    <%end%>
+        <% if current_user == @user %>
+        <span style="font-size: 16px;"><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_user_path(@user), id:"user-edit", remote: true%></span>
+    <%end%>             

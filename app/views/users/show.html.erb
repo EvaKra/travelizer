@@ -9,9 +9,7 @@
                     <% if @user.avatar.attached? %>
                         <%= cl_image_tag @user.avatar.key, class:"avatar-profile"%>
                     <%else%>
-                        <div class="avatar-profile">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
+                            <i class="fas fa-user-circle" style="font-size: 120px;"></i>
                     <%end%> 
                 </div>
                 <%= link_to "Update photo", edit_user_path(@user) %>
@@ -33,7 +31,7 @@
                         <% if @user.description? %>
                             <p> <%= @user.description%></p>
                         <% else %>
-                            <p>Tell other travellers a bit about yourself.</p>
+                            <p>Add a description and tell other travellers a bit about yourself.</p>
                         <%end%>        
                     </div>            
                 </div> 

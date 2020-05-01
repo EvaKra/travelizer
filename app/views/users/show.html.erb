@@ -16,10 +16,16 @@
             <div class="join-date">
                 <p>Joined in <%= @user.created_at.year %></p>
             </div>
-            <div class="description-box">
+            <div class="description-box" id="description-event">
                 <% if @user.description? %>
-                   <p> <%= @user.description%></p>
+                   <p > <%= @user.description%></p>
                 <%end%>
+                   <% if current_user == @user %>
+                       <span style="font-size: 16px;"><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_user_path(@user), id:"user-edit", remote: true %></span>
+                <%end%>
+                    <div id="form-on-profile" class="not-visible"> 
+                    <%= render "users/form"%>
+                    </div>                
             </div>    
         </div>    
         <div class="right-box-profile">

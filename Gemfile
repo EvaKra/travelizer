@@ -20,8 +20,9 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'geocoder'
 gem 'country_select'
 gem 'pg_search', '~> 2.3.0'
-gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+gem 'turbolinks_render'
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

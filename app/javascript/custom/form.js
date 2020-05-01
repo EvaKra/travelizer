@@ -1,6 +1,6 @@
-const textarea = document.getElementById('itinerary_summary');
+const textbox = document.getElementById('itinerary_summary');
 
-textarea.addEventListener("keyup", (event) => {
+textbox.addEventListener('keyup', (event) => {
     const target = event.currentTarget;
     const maxLength = target.getAttribute("maxlength");
     const currentLength = target.value.length;
@@ -20,6 +20,8 @@ textarea.addEventListener("keyup", (event) => {
 });
 
 
+
+
 const realFileBtn = document.getElementById("itinerary_photos");
 const customBtn = document.getElementById("custom-button");
 const customTxt = document.getElementById("custom-text");
@@ -35,6 +37,4 @@ realFileBtn.addEventListener("change", function() {
     customTxt.innerHTML = "No file chosen, yet.";
   }
 });
-
-
 

@@ -5,7 +5,7 @@
         <%= f.input :name, label:"1. Title of Itinerary" %>
 
         <%= f.input :duration, label: "2. Number of days", input_html: { min: '1', step: '1' } %>
-        <%= f.input :summary, maxlength:"700", label: "3. Give us a short summary of your trip" %>
+        <%= f.input :summary, maxlength:"700", label: "3. Give us a short summary of your trip", id:"itinerary_summary" %>
         <p id="charcount">max 700 characters</p>
         <p>4. Bring your itinerary to life by adding a few photos. The photos you upload here will be added to the photo carousel.</p>
         <button type="button" id="custom-button">📷 Upload photos</button>

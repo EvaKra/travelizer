@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         @user.update(user_params)
         if @user.save 
             respond_to do |format|  
-                format.html { redirect_to user_path(current_user, notice: "Successfully updated!")}
+                format.html { redirect_to user_path(@user)}
                 format.js { render 'users/update'}
             end  
             # redirect_to user_path(current_user)
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:description, :photo)
+        params.require(:user).permit(:description, :avatar)
     end
 
     

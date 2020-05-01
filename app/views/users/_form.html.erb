@@ -2,8 +2,8 @@
   <div class="new-form-box row">
     <div class="new-form-user col-12 col-lg-12">
       <%= simple_form_for @user, remote: true do |f| %>
+        <%= f.file_field :avatar %>
         <%= f.input :description, label: false %>
-        <%# <%= f.input :avatar %>
         <%= f.submit "Save changes", id:"save-changes" %>
       <% end %>
     </div>

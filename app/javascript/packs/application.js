@@ -1,11 +1,13 @@
+
+// require("bootstrap")
 global.$ = require('jquery')
 require("jquery")
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
-
 require("custom/form")
 require("custom/user_edit")
+
 
 
 

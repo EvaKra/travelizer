@@ -22,7 +22,7 @@ gem 'country_select'
 gem 'pg_search', '~> 2.3.0'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'turbolinks_render'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3.5'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -68,7 +68,7 @@
                                 <h3>
                                     <%= a.name%>
                                     <% if current_user == @itinerary.user %>
-                                        <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_destination_activity_path(@itinerary, d, a)%>
+                                        <%= link_to "<i class='far fa-edit' style='font-size: 16px;'></i>".html_safe, edit_itinerary_destination_activity_path(@itinerary, d, a)%>
                                     <%end%>
                                 </h3>
                                 <br>
@@ -88,7 +88,7 @@
                                 <h3>
                                     <%= t.start_location %> to <%= t.end_location%>
                                     <% if current_user == @itinerary.user %>
-                                        <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_destination_transport_path(@itinerary, d, t)%>
+                                        <%= link_to "<i class='far fa-edit' style='font-size: 16px;'></i>".html_safe, edit_itinerary_destination_transport_path(@itinerary, d, t)%>
                                     <%end%>
                                 </h3>
                                 <br>
@@ -104,7 +104,7 @@
                                 <h3>
                                     <%= accommodation.name %>
                                     <% if current_user == @itinerary.user %>
-                                        <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_destination_accommodation_path(@itinerary, d, accommodation)%>
+                                        <%= link_to "<i class='far fa-edit' style='font-size: 16px;'></i>".html_safe, edit_itinerary_destination_accommodation_path(@itinerary, d, accommodation)%>
                                     <%end%>
                                 </h3>
                                 <br>

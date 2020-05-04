@@ -4,6 +4,7 @@
 
 .new-form-box {
     justify-content: center;
+    margin-bottom: 35px;
 }
 
 #charcount {
@@ -45,12 +46,11 @@
       display: flex;
   }
 
-  #itinerary-summary {
-      margin-bottom: 10px;
-  }
-
   .new-form-itinerary {
     margin-top: 90px;
     margin-bottom: 20px;
   }
 
+  #itinerary-ganz {
+      margin-bottom: 20px;
+  }

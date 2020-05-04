@@ -11,11 +11,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+
+
         <li class="nav-item active">
-          <%= link_to "Profile", user_path(current_user) , class: "nav-link" %>
+          <%= link_to "My itineraries", user_path(current_user) , class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Add new itinerary", new_itinerary_path , class: "nav-link" %>
+          <%= link_to "New itinerary", new_itinerary_path , class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Profile", user_path(current_user) , class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Search", root_path, class: "nav-link" %>

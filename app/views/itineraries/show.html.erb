@@ -3,9 +3,6 @@
         <div class="title">
             <h1>
                 <%= @itinerary.name %>, <%= @itinerary.duration %> days
-                <% if current_user == @itinerary.user %>
-                    <span style="font-size: 16px;"><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_path(@itinerary) %></span>
-                <%end%>
             </h1>
             <div class="author-avatar">
                 <div class="avatar-box">

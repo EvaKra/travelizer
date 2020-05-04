@@ -40,13 +40,21 @@ class ItinerariesController < ApplicationController
 
     def edit
         @itinerary = Itinerary.find(params[:id])
+        respond_to do |format|
+          format.html { render :edit }
+          format.js { render 'itineraries/edit'}
+        end
     end
 
     def update
         @itinerary = Itinerary.find(params[:id])
         @itinerary.update(itinerary_params)
         if @itinerary.save
-          redirect_to itinerary_path(@itinerary)
+          respond_to do |format|  
+            format.html { redirect_to itinerary_path(@itinerary)}
+            format.js { render 'itineraries/update'}
+          # redirect_to itinerary_path(@itinerary)
+          end
         else
           render :edit
         end

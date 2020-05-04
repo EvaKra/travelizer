@@ -1,0 +1,6 @@
+<div id="itinerary-summary">   
+    <%= @itinerary.summary %> 
+    <% if current_user == @itinerary.user %>
+        <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_path(@itinerary), remote: true %>
+    <%end%>
+</div>

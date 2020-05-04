@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="new-form-box row">
+    <div class="new-form-itinerary col-12 col-lg-12">
+      <%= simple_form_for @itinerary, remote: true do |f| %>
+        <%= f.input :summary, maxlength:"700", label: "Summary" %>
+        <%= f.submit "Save changes", class:"search-button", style:"margin: 0px 0px 50px 0px;" %>
+      <% end %>
+    </div>
+  </div> 
+</div>

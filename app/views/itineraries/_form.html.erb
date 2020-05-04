@@ -1,9 +1,13 @@
-<div class="container">
+<div>
   <div class="new-form-box row">
     <div class="new-form-itinerary col-12 col-lg-12">
       <%= simple_form_for @itinerary, remote: true do |f| %>
-        <%= f.input :summary, maxlength:"700", label: "Summary" %>
-        <%= f.submit "Save changes", class:"search-button", style:"margin: 0px 0px 50px 0px;" %>
+      <%= f.input :name, label:"1. Title of Itinerary" %>
+
+        <%= f.input :duration, label: "2. Number of days", input_html: { min: '1', step: '1' } %>
+        <%= f.input :summary, maxlength:"700", label: "3. Give us a short summary of your trip", id:"itinerary_summary" %>
+        <p id="charcount">max 700 characters</p>
+        <%= f.submit "Save changes", class:"search-button"%>
       <% end %>
     </div>
   </div> 

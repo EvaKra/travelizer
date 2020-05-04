@@ -1,6 +1,28 @@
-<div id="itinerary-summary">   
-    <%= @itinerary.summary %> 
-    <% if current_user == @itinerary.user %>
-        <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_path(@itinerary), remote: true %>
-    <%end%>
-</div>
+<div id="itinerary-ganz">
+        <div class="title">
+            <h1>
+                <%= @itinerary.name %>, <%= @itinerary.duration %> days
+                <% if current_user == @itinerary.user %>
+                    <span style="font-size: 16px;"><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_path(@itinerary) %></span>
+                <%end%>
+            </h1>
+            <div class="author-avatar">
+                <div class="avatar-box">
+                    <% if @itinerary.user.avatar.attached? %>
+                        <%= cl_image_tag @itinerary.user.avatar.key, class:"avatar"%>
+                    <%else%>
+                        <div class="avatar-icon"><i class="fas fa-user-circle"></i></div>
+                    <%end%> 
+                </div>
+                <div class="author">
+                    <p>Written by <%= link_to @itinerary.user.first_name, user_path(@itinerary.user) %>, joined in <%= @itinerary.user.created_at.year%></p>
+                </div>
+            </div>
+        </div> 
+        <div id="itinerary-summary">   
+            <%= @itinerary.summary %> 
+            <% if current_user == @itinerary.user %>
+                <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_path(@itinerary), remote: true %>
+            <%end%>
+        </div>
+    </div> 

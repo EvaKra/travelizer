@@ -30,7 +30,13 @@
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+   
     <div class="bootstrap-tabs">
+        <div class="add-icon">
+            <% if @itinerary.user == current_user %>
+                <i class="fas fa-plus-square" style="color: darkgrey"></i><%= link_to " Add destination", new_itinerary_destination_path(@itinerary) %>
+            <% end %>
+        </div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">    
             <% @itinerary.destinations.each do |d| %>
                 <li class="nav-item">
@@ -61,7 +67,14 @@
                         <%end%>
                     </div>    
                     <% if d.activities.any?%>
-                        <h2 class="category">Things to do in <%=d.city%></h2>
+                        <div class="category">
+                            <h2 class="category-header">Things to do in <%=d.city%></h2>
+                            <div class="add-icon">
+                                <% if @itinerary.user == current_user %>
+                                    <i class="fas fa-plus-square" style="color: darkgrey"></i><%= link_to " Add activity", new_itinerary_destination_activity_path(@itinerary, d)%>
+                                <% end %>
+                            </div>
+                        </div>
                         <% d.activities.each do |a| %>
                             <div class="activity-box">
                                 <h3>
@@ -81,7 +94,14 @@
                         <%end%>
                     <%end%>  
                     <% if d.transports.any? %>  
-                    <h2 class="category">Transport</h2>
+                    <div class="category">
+                        <h2 class="category-header">Transport</h2>
+                            <div class="add-icon">
+                                <% if @itinerary.user == current_user %>
+                                    <i class="fas fa-plus-square" style="color: darkgrey"></i><%= link_to " Add activity", new_itinerary_destination_activity_path(@itinerary, d)%>
+                                <% end %>
+                            </div>
+                    </div>        
                         <% d.transports.each do |t| %>
                             <div class="activity-box">
                                 <h3>
@@ -97,38 +117,33 @@
                     <%end%>
 
                     <% if d.accommodations.any? %>  
-                    <h2 class="category">Accommodation</h2>
-                        <% d.accommodations.each do |accommodation| %>
-                            <div class="activity-box">
-                                <h3>
-                                    <%= accommodation.name %>
-                                    <% if current_user == @itinerary.user %>
-                                        <%= link_to "<i class='far fa-edit' style='font-size: 16px;'></i>".html_safe, edit_itinerary_destination_accommodation_path(@itinerary, d, accommodation)%>
-                                    <%end%>
-                                </h3>
-                                <br>
+                    <div class="category">
+                        <h2 class="category-header">Accommodation</h2>
+                            <div class="add-icon">
+                                <% if @itinerary.user == current_user %>
+                                    <i class="fas fa-plus-square" style="color: darkgrey"></i><%= link_to " Add accommodation", new_itinerary_destination_accommodation_path(@itinerary, d)%>
+                                <% end %>
+                            </div>
+                    </div> 
+                    <% d.accommodations.each do |accommodation| %>
+                        <div class="activity-box">
+                            <h3>
+                                <%= accommodation.name %>
+                                <% if current_user == @itinerary.user %>
+                                    <%= link_to "<i class='far fa-edit' style='font-size: 16px;'></i>".html_safe, edit_itinerary_destination_accommodation_path(@itinerary, d, accommodation)%>
+                                <%end%>
+                            </h3>
+                            <br>
                                 <% accommodation.photos.each do |photo|%>
-                                        <div class="activity-image"> 
-                                            <%= cl_image_tag photo.key %>
-                                        </div>
-                                    <%end%>
+                                    <div class="activity-image"> 
+                                        <%= cl_image_tag photo.key %>
+                                    </div>
+                                <%end%>
                             </div>
                         <%end%>
-                    <%end%>
-
-                    <% if @itinerary.user == current_user %>    
-                        <div class="button-list">
-                            <p>Add more information:</P>
-                            <%= link_to "Transport", new_itinerary_destination_transport_path(@itinerary, d) %>
-                            <%= link_to "Accommodation", new_itinerary_destination_accommodation_path(@itinerary, d) %>
-                            <%= link_to "Activity", new_itinerary_destination_activity_path(@itinerary, d)%>
-                        </div>
-                    <%end%>
+                    <%end%>                                
                 </div>
-            <% end %>
+            <%end%>
         </div>
-    </div>
-        <% if @itinerary.user == current_user %>
-            <%= link_to "Add destination", new_itinerary_destination_path(@itinerary) %>
-        <% end %>    
+    </div>    
 </div>

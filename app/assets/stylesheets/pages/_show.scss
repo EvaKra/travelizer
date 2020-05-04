@@ -68,6 +68,12 @@
 .category {
     margin-left: 10px;
     margin-top: 70px;
+    display: flex;
+    justify-content:space-between ;
+}
+
+.category-header {
+    margin-right: 10px;
 }
 
 .no-itinerary {
@@ -195,3 +201,12 @@
   .itinerary-title-profile {
       text-align: center;
   }
+
+  .add-icon {
+      margin-bottom: 15px;
+  }
+
+  .add-icon a {
+      text-decoration: none; 
+  }
+

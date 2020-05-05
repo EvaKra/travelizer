@@ -1,22 +1,22 @@
 <div class="container">
-  <div class="new-form-box-avatar row">
-    <div class="new-form-user-avatar col-12 col-lg-12">
-        <div class="avatar-profile-box" >
-            <h1>Update your profile picture</h1>
-            <% if @user.avatar.attached? %>
-                <%= cl_image_tag @user.avatar.key, class:"avatar-profile"%>
-            <%else%>
-                <div class="avatar-profile">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-            <%end%> 
+    <div class="new-form-box row">
+        <div class="new-form col-12 col-lg-8">
+            <h2 class="update-avatar-title">Update your profile picture</h2>
+            <div class="update-avatar">            
+                <% if @user.avatar.attached? %>
+                    <%= cl_image_tag @user.avatar.key, class:"avatar-profile"%>
+                <%else%>
+                    <div class="avatar-profile">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                <%end%> 
+            </div>
+            <div class="buttonsform">
+                <%= simple_form_for @user do |f| %>
+                    <div class="update-avatar"><%= f.file_field :avatar %></div>
+                    <div class="update-avatar"><%= f.submit "Save changes",  class:"search-button" %></div>
+                <% end %>
+            </div>
         </div>
-        <div>
-            <%= simple_form_for @user do |f| %>
-                <%= f.file_field :avatar %>
-                <%= f.submit "Save changes"%>
-            <% end %>
-        </div>
-    </div>
-  </div> 
+    </div> 
 </div>

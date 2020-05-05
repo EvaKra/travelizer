@@ -1,18 +1,18 @@
 <div class="container">
-  <div class="user-edit-form">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+  <div class="new-form-box row">
+    <div class="new-form col-12 col-lg-8">
+    <h2>Change your password</h2>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
-      <%# <%= cl_image_tag user_avatar(resource, 100), class: "rounded-circle" %> 
-          <% if resource.avatar.attached? %>
-            <%= cl_image_tag resource.avatar.key, class: "avatar-large"%>
-          <%else%>
-            <div class="avatar-icon-large"><i class="fas fa-user-circle"></i></div>
-          <%end%> 
+                <%# <%= cl_image_tag user_avatar(resource, 100), class: "rounded-circle" %> 
+                    <%# <% if resource.avatar.attached? %> 
+                      <%# <%= cl_image_tag resource.avatar.key, class: "avatar-large"%> 
+                    <%# <%else%>
+                      <%# <div class="avatar-icon-large"><i class="fas fa-user-circle"></i></div> %>
+                    <%# <%end%> 
 
-    <%= f.file_field :avatar %>
+              <%# <%= f.file_field :avatar %>
 
     <div class="form-inputs">
     
@@ -36,7 +36,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Update" %>
+        <%= f.submit "Update",  class:"search-button" %>
       </div>
     <% end %>
 
@@ -45,5 +45,6 @@
       <%# <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %> 
 
       <%= link_to "Back", :back %>
+    </div>
   </div>
 </div>

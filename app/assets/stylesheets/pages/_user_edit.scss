@@ -6,15 +6,6 @@
     height: 130px;
 }
 
-.new-form-box-avatar {
-    text-align: center;
-}
-
-.new-form-user-avatar {
-  display: inline-block;
-  margin-top: 190px;
-}
-
 .title-edit {
     display: flex;
     justify-content: center;
@@ -28,4 +19,18 @@
 
 .about {
     margin-right: 5px;
+}
+
+.buttonsform  {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.update-avatar-title {
+    text-align: center;
+}
+
+.update-avatar {
+    text-align: center;
 }

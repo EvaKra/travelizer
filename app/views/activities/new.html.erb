@@ -1,14 +1,14 @@
 <div class="container">
   <div class="new-form-box row">
     <div class="new-form col-12 col-lg-8">
-    <h2> What did you do in <%= @destination.city %>? </h2>
-      <%= simple_form_for [@itinerary, @destination, @activity] do |f| %>
-        <%= f.input :name%>
-        <%= f.input :description%>
-        <%= f.input :cost%>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-        <%= f.submit %>
-      <% end %>
+      <h2> What did you do in <%= @destination.city %>? </h2>
+        <%= simple_form_for [@itinerary, @destination, @activity] do |f| %>
+          <%= f.input :name%>
+          <%= f.input :description%>
+          <%= f.input :cost%>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+          <%= f.submit "Save",  class:"search-button" %>
+        <% end %>
      </div> 
   </div>
 </div>

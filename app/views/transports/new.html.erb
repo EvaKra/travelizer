@@ -9,7 +9,7 @@
           <%= f.input :via_location, label: "Did you stop on the way? If yes, where?"%>
           <%= f.input :end_location, label:"Destination"%>
           <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-          <%= f.submit %>
+          <%= f.submit "Save",  class:"search-button" %>
         <% end %>
     </div> 
   </div>

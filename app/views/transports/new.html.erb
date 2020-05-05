@@ -1,13 +1,16 @@
 <div class="container">
-  <div class="new-form">
-    <%= simple_form_for [@itinerary, @destination, @transport] do |f| %>
-      <%= f.input :transport_type, :label => "Type of transport", :collection => ['Boat','Car', 'Flight', 'Train', 'Taxi', 'Uber'] %>
-      <%= f.input :description, :label => "Summary" %>
-      <%= f.input :start_location, :label => "Where did you start?"%>
-      <%= f.input :via_location, :label => "Did you stop on the way? If yes, where?"%>
-      <%= f.input :end_location, :label => "Destination"%>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-      <%= f.submit %>
-    <% end %>
+  <div class="new-form-box row">
+  <div class="new-form col-12 col-lg-8">
+      <h2> How did you get from <%= @destination.city %> to the next place? </h2>
+      <%= simple_form_for [@itinerary, @destination, @transport] do |f| %>
+        <%= f.input :transport_type, :label => "Type of transport", :collection => ['Boat','Car', 'Flight', 'Train', 'Taxi', 'Uber'] %>
+        <%= f.input :description, :label => "Summary" %>
+        <%= f.input :start_location, :label => "Where did you start?"%>
+        <%= f.input :via_location, :label => "Did you stop on the way? If yes, where?"%>
+        <%= f.input :end_location, :label => "Destination"%>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+        <%= f.submit %>
+      <% end %>
+   </div> 
   </div>
 </div>

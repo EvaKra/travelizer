@@ -33,7 +33,7 @@
     color: #aaa;
   }
 
-  .itinerary_photos {
+  #itinerary_photos {
     // visibility: collapse;
     display: none;
   }
@@ -54,3 +54,42 @@
   #itinerary-ganz {
       margin-bottom: 20px;
   }
+
+  .custom-box {
+      display: flex;
+  }
+  
+  .button-cluster {
+    margin-bottom: 20px;
+  }
+
+
+
+
+
+
+  
+#custom-button-dest {
+    border: 1px solid #d3d3d3;
+    padding: 13px 15px;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+
+    &:hover {
+        color: salmon;
+    }
+  }
+
+  #custom-text-dest {
+    margin-left: 10px;
+    font-family: sans-serif;
+    color: #aaa;
+  }
+
+//   #destination_photos {
+//     // visibility: collapse;
+//     display: none;
+//   }

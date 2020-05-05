@@ -21,7 +21,7 @@ textbox.addEventListener('keyup', (event) => {
 
 
 
-
+// style of photo upload button new itinerary
 const realFileBtn = document.getElementById("itinerary_photos");
 const customBtn = document.getElementById("custom-button");
 const customTxt = document.getElementById("custom-text");
@@ -37,4 +37,8 @@ realFileBtn.addEventListener("change", function() {
     customTxt.innerHTML = "No file chosen, yet.";
   }
 });
+
+// style of photo upload button destination photos
+
+
 

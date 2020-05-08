@@ -5,21 +5,17 @@ require("jquery")
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
-require("custom/form")
 require("custom/user_edit")
-
-
-
-
-//import { renderEditFormOnClick } from '../custom/user_edit';
-
 import "bootstrap";
-//import { initMapbox } from '../plugins/init_mapbox';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+import changePhotoUpload from '../custom/form';
+changePhotoUpload();
 
 document.addEventListener('turbolinks:load', () => {
- // renderEditFormOnClick();
-})
+    
+});
 
-import 'mapbox-gl/dist/mapbox-gl.css';
+
 
 

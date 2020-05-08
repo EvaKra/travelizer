@@ -1,3 +1,5 @@
+
+
 const textbox = document.getElementById('itinerary_summary');
 
 textbox.addEventListener('keyup', (event) => {
@@ -20,8 +22,10 @@ textbox.addEventListener('keyup', (event) => {
 });
 
 
-
 // style of photo upload button new itinerary
+
+const changePhotoUpload = () => {
+
 const realFileBtn = document.getElementById("itinerary_photos");
 const customBtn = document.getElementById("custom-button");
 const customTxt = document.getElementById("custom-text");
@@ -37,7 +41,8 @@ realFileBtn.addEventListener("change", function() {
     customTxt.innerHTML = "No file chosen, yet.";
   }
 });
-
+}
+export default changePhotoUpload;
 // style of photo upload button destination photos
 
 

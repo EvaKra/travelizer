@@ -12,7 +12,9 @@
                             <i class="fas fa-user-circle" style="font-size: 120px;"></i>
                     <%end%> 
                 </div>
-                <%= link_to "Update photo", edit_user_path(@user) %>
+                <% if current_user == @user %>
+                    <%= link_to "Update photo", edit_user_path(@user) %>
+                <% end %>    
                 <div class="join-date">
                     <p>Joined in <%= @user.created_at.year %></p>
                 </div>
@@ -79,7 +81,7 @@
             <%else%>
                 <div class="no-itinerary">
                 <% if current_user == @user %>
-                    <p>You haven't got any itineraries yet. Would you like to add one?</p><br>
+                    <p>You haven't got any itineraries yet. Time to add your first one?</p><br>
                     <%= link_to "Let's get started", new_itinerary_path,  class: "search-button"%>
                 <% else %>
                     <p><%= @user.name%> has not shared any itineraries yet but watch this space :)</p>

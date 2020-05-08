@@ -9,12 +9,19 @@ require("custom/user_edit")
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import changePhotoUpload from '../custom/form';
-changePhotoUpload();
+// import changePhotoUpload from '../custom/form';
+// changePhotoUpload();
 
-document.addEventListener('turbolinks:load', () => {
+// import characterCount from '../custom/form';
+// characterCount();
+
+import { changePhotoUpload, characterCount } from '../custom/form';
+changePhotoUpload();
+characterCount();
+
+// document.addEventListener('turbolinks:load', () => {
     
-});
+// });
 
 
 

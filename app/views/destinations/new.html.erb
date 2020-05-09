@@ -7,8 +7,18 @@
         <%= f.input :city%>
         <%= f.input :date%>
         <%= f.input :description%>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-        <%= f.submit "Save",  class:"search-button" %>
+         <div>
+         <div class="button-cluster">
+            <button type="button" id="custom-button-dest">📷 Upload photos</button>
+            <span id="custom-text-dest">No photo chosen, yet.</span>
+            <%= f.input :photos, as: :file, label: false, input_html: { multiple: true }%>
+          </div>
+          <div>
+            <%= f.submit class:"search-button", style:"margin: 0px 0px 50px 0px;" %>
+          </div>
+          </div>
+        <%# <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+        <%# <%= f.submit "Save",  class:"search-button" %>
       <% end %>
     </div>
   </div>

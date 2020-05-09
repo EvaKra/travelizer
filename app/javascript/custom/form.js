@@ -1,5 +1,6 @@
+
 const characterCount = () => {
-console.log("charcount");
+
   const textbox = document.getElementById('itinerary_summary');
 
   textbox.addEventListener('keyup', (event) => {
@@ -28,17 +29,17 @@ console.log("charcount");
 
 const changePhotoUpload = () => {
 
-console.log("photoupload");
-
 const realFileBtn = document.getElementById("itinerary_photos");
 const customBtn = document.getElementById("custom-button");
 const customTxt = document.getElementById("custom-text");
 
-customBtn.addEventListener("click", function() {
-  realFileBtn.click();
+  customBtn.addEventListener('click', () => {
+    
+    realFileBtn.click();
 });
 
-realFileBtn.addEventListener("change", function() {
+realFileBtn.addEventListener('change', () => {
+  
   if (realFileBtn.files) {
     customTxt.innerHTML = `${realFileBtn.files.length} attached`;
   } else {
@@ -47,9 +48,33 @@ realFileBtn.addEventListener("change", function() {
 });
 }
 
-export { characterCount, changePhotoUpload };
+
 
 // style of photo upload button destination photos
 
+const changePhotoUploadDest = () => {
+  console.log("Destupload");
 
+  const customBtnDest = document.getElementById("custom-button-dest");
+  const realFileBtnDest = document.getElementById("destination_photos");
+  const customTxtDest = document.getElementById("custom-text-dest");
 
+  if (customBtnDest) {
+  customBtnDest.addEventListener("click", () => {
+    realFileBtnDest.click();
+  });
+  }
+  
+  realFileBtnDest.addEventListener("change", () => {
+   
+    if (realFileBtnDest.files) {
+      customTxtDest.innerHTML = `${realFileBtnDest.files.length} attached`;
+    } else {
+      customTxtDest.innerHTML = "No file chosen, yet.";
+    }
+  });
+  }
+
+  
+  export { characterCount, changePhotoUpload, changePhotoUploadDest };
+  

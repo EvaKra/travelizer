@@ -92,16 +92,22 @@
                                 <%= a.description%>
                             </div>
                         <%end%>
+                    <% else %>    
+                        <div class="add-icon">
+                            <% if @itinerary.user == current_user %>
+                                <i class="fas fa-plus-square" style="color: darkgrey"></i><%= link_to " Add activity", new_itinerary_destination_activity_path(@itinerary, d)%>
+                            <% end %>
+                        </div>
                     <%end%>  
                     <% if d.transports.any? %>  
-                    <div class="category">
-                        <h2 class="category-header">Transport</h2>
+                        <div class="category">
+                            <h2 class="category-header">Transport</h2>
                             <div class="add-icon">
                                 <% if @itinerary.user == current_user %>
                                     <i class="fas fa-plus-square" style="color: darkgrey"></i><%= link_to " Add transport", new_itinerary_destination_transport_path(@itinerary, d)%>
                                 <% end %>
                             </div>
-                    </div>        
+                        </div>        
                         <% d.transports.each do |t| %>
                             <div class="activity-box">
                                 <h3>
@@ -114,33 +120,44 @@
                                 <%= t.description%>
                             </div>
                         <%end%>
+                    <% else %>   
+                        <div class="add-icon">
+                            <% if @itinerary.user == current_user %>
+                                <i class="fas fa-plus-square" style="color: darkgrey"></i><%= link_to " Add transport", new_itinerary_destination_transport_path(@itinerary, d)%>
+                            <% end %>
+                        </div>
                     <%end%>
-
                     <% if d.accommodations.any? %>  
-                    <div class="category">
-                        <h2 class="category-header">Accommodation</h2>
+                        <div class="category">
+                            <h2 class="category-header">Accommodation</h2>
                             <div class="add-icon">
                                 <% if @itinerary.user == current_user %>
                                     <i class="fas fa-plus-square" style="color: darkgrey"></i><%= link_to " Add accommodation", new_itinerary_destination_accommodation_path(@itinerary, d)%>
                                 <% end %>
                             </div>
-                    </div> 
-                    <% d.accommodations.each do |accommodation| %>
-                        <div class="activity-box">
-                            <h3>
-                                <%= accommodation.name %>
-                                <% if current_user == @itinerary.user %>
-                                    <%= link_to "<i class='far fa-edit' style='font-size: 16px;'></i>".html_safe, edit_itinerary_destination_accommodation_path(@itinerary, d, accommodation)%>
-                                <%end%>
-                            </h3>
-                            <br>
-                                <% accommodation.photos.each do |photo|%>
-                                    <div class="activity-image"> 
-                                        <%= cl_image_tag photo.key %>
-                                    </div>
-                                <%end%>
-                            </div>
-                        <%end%>
+                        </div> 
+                        <% d.accommodations.each do |accommodation| %>
+                            <div class="activity-box">
+                                <h3>
+                                    <%= accommodation.name %>
+                                    <% if current_user == @itinerary.user %>
+                                        <%= link_to "<i class='far fa-edit' style='font-size: 16px;'></i>".html_safe, edit_itinerary_destination_accommodation_path(@itinerary, d, accommodation)%>
+                                    <%end%>
+                                </h3>
+                                <br>
+                                    <% accommodation.photos.each do |photo|%>
+                                        <div class="activity-image"> 
+                                            <%= cl_image_tag photo.key %>
+                                        </div>
+                                    <%end%>
+                                </div>
+                            <%end%>
+                    <% else %>
+                        <div class="add-icon">
+                            <% if @itinerary.user == current_user %>
+                                <i class="fas fa-plus-square" style="color: darkgrey"></i><%= link_to " Add accommodation", new_itinerary_destination_accommodation_path(@itinerary, d)%>
+                            <% end %>
+                        </div> 
                     <%end%>                                
                 </div>
             <%end%>

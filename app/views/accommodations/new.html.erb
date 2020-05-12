@@ -6,8 +6,16 @@
         <%= f.input :name%>
         <%= f.input :address%>
         <%= f.input :accommodation_type%>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-        <%= f.submit "Save",  class:"search-button" %>
+        <div>
+            <div class="button-cluster">
+                <button type="button" id="custom-button-acc">📷 Upload photos</button>
+                <span id="custom-text-acc">No photo chosen, yet.</span>
+                <%= f.input :photos, as: :file, label: false, input_html: { multiple: true }%>
+              </div>
+              <div>
+                <%= f.submit class:"search-button", style:"margin: 0px 0px 50px 0px;" %>
+              </div>
+          </div>
       <% end %>
     </div> 
   </div>

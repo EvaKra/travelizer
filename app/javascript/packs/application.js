@@ -11,6 +11,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 
+
 import {changePhotoUpload} from "../custom/form.js";
 document.addEventListener('turbolinks:load', () => {  
     changePhotoUpload();
@@ -26,3 +27,12 @@ document.addEventListener('turbolinks:load', () => {
     changePhotoUploadDest();
 });
 
+import {changePhotoUploadAct} from "../custom/form.js";
+document.addEventListener('turbolinks:load', () => {  
+    changePhotoUploadAct();
+});
+
+import {changePhotoUploadAcc} from "../custom/form.js";
+document.addEventListener('turbolinks:load', () => {  
+    changePhotoUploadAcc();
+});

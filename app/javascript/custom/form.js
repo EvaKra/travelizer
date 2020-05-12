@@ -1,6 +1,6 @@
 
 const characterCount = () => {
-
+  console.log("charctercount");
   const textbox = document.getElementById('itinerary_summary');
 
   textbox.addEventListener('keyup', (event) => {
@@ -28,6 +28,7 @@ const characterCount = () => {
 // style of photo upload button new itinerary
 
 const changePhotoUpload = () => {
+  console.log("Itineraryupload");
 
 const realFileBtn = document.getElementById("itinerary_photos");
 const customBtn = document.getElementById("custom-button");
@@ -75,6 +76,56 @@ const changePhotoUploadDest = () => {
   });
   }
 
+
+// style of photo upload button activity photos
+
+  const changePhotoUploadAct = () => {
+    console.log("Actstupload");
   
-  export { characterCount, changePhotoUpload, changePhotoUploadDest };
+    const customBtnAct = document.getElementById("custom-button-act");
+    const realFileBtnAct = document.getElementById("activity_photos");
+    const customTxtAct = document.getElementById("custom-text-act");
+  
+    if (customBtnAct) {
+    customBtnAct.addEventListener("click", () => {
+      realFileBtnAct.click();
+    });
+    }
+    
+    realFileBtnAct.addEventListener("change", () => {
+     
+      if (realFileBtnAct.files) {
+        customTxtAct.innerHTML = `${realFileBtnAct.files.length} attached`;
+      } else {
+        customTxtAct.innerHTML = "No file chosen, yet.";
+      }
+    });
+    }
+
+// style of photo upload button accommodation photos
+
+const changePhotoUploadAcc = () => {
+  console.log("Actstupload");
+
+  const customBtnAcc = document.getElementById("custom-button-acc");
+  const realFileBtnAcc = document.getElementById("accommodation_photos");
+  const customTxtAcc = document.getElementById("custom-text-acc");
+
+  if (customBtnAcc) {
+  customBtnAcc.addEventListener("click", () => {
+    realFileBtnAcc.click();
+  });
+  }
+  
+  realFileBtnAcc.addEventListener("change", () => {
+   
+    if (realFileBtnAcc.files) {
+      customTxtAcc.innerHTML = `${realFileBtnAcc.files.length} attached`;
+    } else {
+      customTxtAcc.innerHTML = "No file chosen, yet.";
+    }
+  });
+  }
+    
+  export { characterCount, changePhotoUpload, changePhotoUploadDest, changePhotoUploadAct, changePhotoUploadAcc };
   

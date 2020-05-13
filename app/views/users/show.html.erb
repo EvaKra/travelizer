@@ -12,20 +12,22 @@
                             <i class="fas fa-user-circle" style="font-size: 120px;"></i>
                     <%end%> 
                 </div>
-                <% if current_user == @user %>
-                    <%= link_to "Update photo", edit_user_path(@user) %>
-                <% end %>    
+                <div class="update-photo">
+                    <% if current_user == @user %>
+                        <%= link_to "Update photo", edit_user_path(@user) %>
+                    <% end %>  
+                </div>      
                 <div class="join-date">
                     <p>Joined in <%= @user.created_at.year %></p>
-                </div>
+                </div>    
                 <div class="description-box" id="description-event">
                    <div class="title-edit">
                         <div class="about">
                             <h3>About me</h3> 
                         </div>
-                        <div class="edit-icon">
+                        <div>
                             <% if current_user == @user %>
-                                <span style="font-size: 16px;"><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_user_path(@user), id:"user-edit", remote: true %></span>
+                                <span style="font-size: 16px;"><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_user_path(@user), remote: true %></span>
                             <%end%>
                         </div>
                     </div>    

@@ -169,7 +169,7 @@
   }
 
 .avatar-profile-box {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     margin-top: 40px;
 }
 
@@ -211,4 +211,11 @@
   .add-icon a {
       text-decoration: none; 
   }
+
+ .update-photo a {
+    font-size: 14px;
+    &:hover {
+    text-decoration: none;
+    }
+ }
 

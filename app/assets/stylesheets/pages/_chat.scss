@@ -1,0 +1,43 @@
+.container-chat {
+    padding-top: 80px;
+    text-align: center;
+  
+}
+
+.convo-box {
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.chatroom-card {
+    display: flex;
+    border: 1px black solid;
+    padding: 10px;
+    
+}
+
+.left-chatroom-card {
+    display: flex;
+    align-items: center;
+    width: 35%;
+}
+
+.right-chatroom-card {
+
+}
+
+.chatroom-avatar {
+    margin-right: 15px;
+}
+
+.sender-message {
+    text-align: left;
+}
+
+.sender-name {
+
+}
+
+.last-message {
+
+}

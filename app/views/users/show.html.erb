@@ -39,7 +39,10 @@
                         <%end%>        
                     </div>            
                 </div> 
-            </div>       
+            </div> 
+            <% unless current_user == @user %>
+                <%= link_to "Message me", chatrooms_path%>  
+            <% end%>    
         </div>    
         <div class="right-box-profile">
         <div class="itinerary-title-profile">

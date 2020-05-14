@@ -23,6 +23,9 @@
           <%= link_to "Profile", user_path(current_user) , class: "nav-link" %>
         </li>
         <li class="nav-item">
+          <%= link_to "Messages", chatrooms_path(@chatroom) , class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Search", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">

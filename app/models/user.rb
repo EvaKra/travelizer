@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :itineraries, dependent: :destroy
+  #has_many :chatrooms, through: :messages
   has_one_attached :avatar
  
   # Include default devise modules. Others available are:

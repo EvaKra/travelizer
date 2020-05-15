@@ -32,9 +32,27 @@
 
 .messages-container {
     margin-top: 60px;
+    justify-content: center;
 }
 
 .message-card {
     display: flex;
     margin-bottom: 20px;
+}
+
+.left-message-card {
+    display: flex;
+    margin-right: 10px;
+}
+
+.user-time-message {
+    font-size: 10px;
+}
+
+#messages {
+    overflow-y: scroll;
+    height: 60vh;
+    margin-bottom: 10px;
+    margin-top: 25px;
+
 }

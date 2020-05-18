@@ -1,0 +1,84 @@
+<%
+=begin%>
+ 
+<div class="ui segment">
+ <% @messages.each do |message| %>
+  <% if message.content %>
+   <% user = User.find(message.user_id) %>
+   <div class="item">
+    <div class="content">
+     <div class="header"><strong><%= user.first_name %></strong> <%= message.created_at %></div>
+      <div class="list">
+       <div class="item">
+        <i class="right triangle icon"></i>
+         <%= message.content %>
+      </div>
+    </div>
+   </div>
+ </div>
+ <% end %>
+<% end %>
+</div>
+<%= form_for [@chatroom, @message], html: {class: "ui reply form"} do |f| %>
+ <div class="field">
+   <%= f.text_area :content, class: "form-control" %>
+ </div>
+ <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+ <div>
+   <%= f.submit "Add Reply", class: "ui blue labeled submit icon button" %>
+ </div>
+<% end %> 
+<%
+=end%>
+
+
+
+
+<div class="container">
+    <div class="messages-container row">
+        <div class="messages-card-box col-12 col-lg-8">
+            <% if @chatroom.sender == current_user %>  
+                <h1><%= @chatroom.receiver.first_name %><h1>
+            <% else %>
+                <h1><%= @chatroom.sender.first_name %><h1>
+            <% end %>
+            <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+                <% if @messages.any? %>
+                    <% @messages.each do |message| %>
+                        <div class="message-card" id="message-<%= message.id %>">
+                            <div class="left-message-card">
+                                <% if message.user.avatar.attached? %>
+                                    <%= cl_image_tag message.user.avatar.key, class:"avatar"%>
+                                <%else%>
+                                    <i class="fas fa-user-circle" style="font-size: 39px;"></i>
+                                <%end%>
+                            </div>
+                            <div class="right-message-card">
+                                <div class="user-time-message">
+                                    <%= message.user.first_name %> <%= message.created_at.strftime("%d/%m/%y at %l:%M %p") %>
+                                </div>
+                                <div>
+                                    <p class="message-content"><%= message.content %></p>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                <% else %>
+                    <p>Start a conversation</p>
+                <% end %>
+            </div>
+            </div>
+            <div class="chat-form">
+                <%= form_for [@chatroom, @message] do |f| %>
+                <div class="field">
+                <%= f.text_area :content, class: "form-control" %>
+                </div>
+                <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+                <div>
+                <%= f.submit "Add Reply", class: "search-button" %>
+                </div>
+                <% end %> 
+            </div>
+        </div>
+    </div>
+</div>

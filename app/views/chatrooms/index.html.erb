@@ -1,4 +1,6 @@
-<div class="container-chat">
+<%
+=begin%>
+ <div class="container-chat">
 <h1>My conversations</h1>
     <div class="convo-box row">
         <% @chatrooms.each do |chatroom|%>
@@ -30,5 +32,37 @@
             <% end %>
         <%end%>       
     </div>
+</div> 
+<%
+=end%>
+
+<div class='ui segment'>
+ <h3>Inbox</h3>
+ <div class='ui list'>
+  <div class='item'>
+   <% @chatrooms.each do |chatroom| %>
+   <% if chatroom.sender_id == current_user.id ||  chatroom.receiver_id == current_user.id %>
+        <% if chatroom.sender_id == current_user.id %>
+            <% receiver = User.find(chatroom.receiver_id) %>
+        <% else %>
+      <% receiver = User.find(chatroom.sender_id) %>
+    <% end %>
+    <%= link_to receiver.first_name, chatroom_messages_path(chatroom)%>
+   <% end %>
+  <% end %>
+  </div>
+ </div>
+</div>
+<div class='ui segment'>
+ <h3>All Users</h3>
+  <div class='ui list'>
+   <% @users.each do |user| %>
+    <% if user.id != current_user.id %>
+     <div class='item'>
+   <%= user.first_name %> <%= link_to 'Message me!', chatrooms_path(sender_id: current_user.id, receiver_id: user.id), method: 'post'%>
+ </div>
+  <% end %>
+ <% end %>
+ </div>
 </div>
 

@@ -47,6 +47,8 @@
 
 .user-time-message {
     font-size: 10px;
+    font-weight: 400;
+    font-style: italic;
 }
 
 #messages {
@@ -55,4 +57,9 @@
     margin-bottom: 10px;
     margin-top: 25px;
 
+}
+
+.message-content {
+    font-weight: 400;
+    font-size: 12px;
 }

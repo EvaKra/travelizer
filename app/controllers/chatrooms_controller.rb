@@ -1,8 +1,8 @@
 class ChatroomsController < ApplicationController
-    # def show
-    #     @chatroom = Chatroom.find(params[:id])
-    #     @message = Message.new
-    #   end
+    def show
+        @chatroom = Chatroom.find(params[:id])
+        @message = Message.new
+    end
 
     def index
       @users = User.all

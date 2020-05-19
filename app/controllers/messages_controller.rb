@@ -50,7 +50,12 @@ class MessagesController < ApplicationController
   def create
     @message = @chatroom.messages.new(message_params)
     if @message.save
-      redirect_to chatroom_messages_path(@chatroom)
+      ChatroomChannel.broadcast_to(
+      @chatroom,
+      render_to_string(partial: "message", locals: { message: @message })
+      )
+     # redirect_to chatroom_messages_path(@chatroom)
+    redirect_to chatroom_messages_path(@chatroom, anchor: "message-#{@message.id}")
     end
   end
 

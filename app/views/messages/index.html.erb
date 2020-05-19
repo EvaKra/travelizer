@@ -38,20 +38,22 @@
     <div class="messages-container row">
         <div class="messages-card-box col-12 col-lg-8">
             <% if @chatroom.sender == current_user %>  
-                <h1><%= @chatroom.receiver.first_name %><h1>
+                <h1>Your conversation with <%= @chatroom.receiver.first_name %><h1>
             <% else %>
-                <h1><%= @chatroom.sender.first_name %><h1>
+                <h1> Your conversation with <%= @chatroom.sender.first_name %><h1>
             <% end %>
             <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-                <% if @messages.any? %>
-                    <% @messages.each do |message| %>
+                <% @messages.each do |message| %>
+                    <% if message.content %>
+                    <% user = User.find(message.user_id) %>
                         <div class="message-card" id="message-<%= message.id %>">
                             <div class="left-message-card">
-                                <% if message.user.avatar.attached? %>
-                                    <%= cl_image_tag message.user.avatar.key, class:"avatar"%>
-                                <%else%>
-                                    <i class="fas fa-user-circle" style="font-size: 39px;"></i>
-                                <%end%>
+                                    <% if message.user.avatar.attached? %>
+                                        <%= cl_image_tag message.user.avatar.key, class:"avatar"%>
+                                    <%else%>
+                                        <i class="fas fa-user-circle" style="font-size: 39px;"></i>
+                                    <%end%>
+                                
                             </div>
                             <div class="right-message-card">
                                 <div class="user-time-message">
@@ -61,10 +63,9 @@
                                     <p class="message-content"><%= message.content %></p>
                                 </div>
                             </div>
-                        </div>
-                    <% end %>
-                <% else %>
-                    <p>Start a conversation</p>
+                        </div>   
+                 
+                     <% end %>
                 <% end %>
             </div>
             </div>

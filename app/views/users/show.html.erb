@@ -88,7 +88,7 @@
                     <p>You haven't got any itineraries yet. Time to add your first one?</p><br>
                     <%= link_to "Let's get started", new_itinerary_path,  class: "search-button"%>
                 <% else %>
-                    <p><%= @user.name%> has not shared any itineraries yet but watch this space :)</p>
+                    <p><%= @user.first_name%> has not shared any itineraries yet but watch this space :)</p>
                 <% end %>
                 </div>
             <%end%>

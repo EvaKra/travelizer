@@ -9,9 +9,6 @@ require("turbolinks").start()
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-
-
-
 import {changePhotoUpload} from "../custom/form.js";
 document.addEventListener('turbolinks:load', () => {  
     changePhotoUpload();

@@ -53,7 +53,6 @@
                                     <%else%>
                                         <i class="fas fa-user-circle" style="font-size: 39px;"></i>
                                     <%end%>
-                                
                             </div>
                             <div class="right-message-card">
                                 <div class="user-time-message">
@@ -64,22 +63,20 @@
                                 </div>
                             </div>
                         </div>   
-                 
                      <% end %>
                 <% end %>
             </div>
-            </div>
-            <div class="chat-form">
-                <%= form_for [@chatroom, @message], remote: true do |f| %>
-                <div class="field">
-                <%= f.text_area :content, class: "form-control" %>
+                <div class="chat-form">
+                    <%= form_for [@chatroom, @message], remote: true do |f| %>                
+                    <%= f.text_area :content, class: "form-control" %>                
+                    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>                
+                    <%= f.submit "Send", class: "search-button" %>
+                    <% end %> 
                 </div>
-                <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-                <div>
-                <%= f.submit "Add Reply", class: "search-button" %>
-                </div>
-                <% end %> 
-            </div>
         </div>
     </div>
 </div>
+
+
+
+

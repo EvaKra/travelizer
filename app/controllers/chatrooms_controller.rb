@@ -11,16 +11,6 @@ class ChatroomsController < ApplicationController
       @chatrooms = Chatroom.all
     end
 
-    # def create
-    #   unless we_already_have_a_chatroom?
-    #     @chatroom = Chatroom.new
-    #     @chatroom.sender = current_user
-    #     @chatroom.receiver = User.find(params[:chatroom][:receiver_id])
-    #     @chatroom.save!
-    #   end
-    #   redirect_to chatrooms_path
-    # end
-  
     def create
       if Chatroom.between(params[:sender_id],params[:receiver_id])
         .present?
@@ -31,12 +21,6 @@ class ChatroomsController < ApplicationController
       end
         redirect_to chatroom_messages_path(@chatroom)
     end
-
-    private
-  
-    # def we_already_have_a_chatroom?
-    #   Chatroom.where(sender: current_user, receiver: User.find(params[:chatroom][:receiver_id])).present?
-    # end
 
     private
     def chatroom_params

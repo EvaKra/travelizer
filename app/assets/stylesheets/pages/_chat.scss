@@ -61,11 +61,17 @@
     overflow-y: scroll;
     height: 55vh;
     margin-bottom: 10px;
-    margin-top: 25px;
+    margin-top: 20px;
 
 }
 
 .message-content {
     font-weight: 400;
     font-size: 12px;
+}
+
+.chat-title {
+    text-align: center;
+    border-bottom: 0.25px lightgrey solid;
+    padding-bottom: 15px;
 }

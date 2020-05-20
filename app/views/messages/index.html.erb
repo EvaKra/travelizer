@@ -1,46 +1,10 @@
-<%
-=begin%>
- 
-<div class="ui segment">
- <% @messages.each do |message| %>
-  <% if message.content %>
-   <% user = User.find(message.user_id) %>
-   <div class="item">
-    <div class="content">
-     <div class="header"><strong><%= user.first_name %></strong> <%= message.created_at %></div>
-      <div class="list">
-       <div class="item">
-        <i class="right triangle icon"></i>
-         <%= message.content %>
-      </div>
-    </div>
-   </div>
- </div>
- <% end %>
-<% end %>
-</div>
-<%= form_for [@chatroom, @message], html: {class: "ui reply form"} do |f| %>
- <div class="field">
-   <%= f.text_area :content, class: "form-control" %>
- </div>
- <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
- <div>
-   <%= f.submit "Add Reply", class: "ui blue labeled submit icon button" %>
- </div>
-<% end %> 
-<%
-=end%>
-
-
-
-
 <div class="container">
     <div class="messages-container row">
         <div class="messages-card-box col-12 col-lg-8">
             <% if @chatroom.sender == current_user %>  
-                <h1>Your conversation with <%= @chatroom.receiver.first_name %><h1>
+                <div class="chat-title">Your conversation with <%= @chatroom.receiver.first_name %></div>
             <% else %>
-                <h1> Your conversation with <%= @chatroom.sender.first_name %><h1>
+                <div class="chat-title"> Your conversation with <%= @chatroom.sender.first_name %></div>
             <% end %>
             <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
                 <% @messages.each do |message| %>
@@ -66,13 +30,13 @@
                      <% end %>
                 <% end %>
             </div>
-                <div class="chat-form">
-                    <%= form_for [@chatroom, @message], remote: true do |f| %>                
-                    <%= f.text_area :content, class: "form-control" %>                
-                    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>                
-                    <%= f.submit "Send", class: "search-button" %>
-                    <% end %> 
-                </div>
+            <div class="chat-form">
+                <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+                <%= f.input :content, label: false, placeholder: "Type your message..."%>
+                <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+                <%= f.submit "Send", class: "search-button", id:"clear-button" %>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>

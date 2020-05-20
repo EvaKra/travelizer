@@ -36,3 +36,4 @@ import {changePhotoUploadAcc} from "../custom/form.js";
 document.addEventListener('turbolinks:load', () => {  
     changePhotoUploadAcc();
 });
+

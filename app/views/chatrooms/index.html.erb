@@ -34,7 +34,11 @@
                         </div>    
                         <% if chatroom.messages.any? %> 
                         <div class="right-chatroom-card">
-                            <%= chatroom.messages.last.content %>
+                            <% if chatroom.messages.last.content.split.length > 7 %>
+                                <%= chatroom.messages.last.content.split[0..7].join(' ')... %>
+                            <% else %>
+                                <%= chatroom.messages.last.content %>
+                            <% end %>
                         </div>
                         <% end %>
                     </div>

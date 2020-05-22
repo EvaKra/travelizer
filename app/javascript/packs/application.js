@@ -39,3 +39,8 @@ document.addEventListener('turbolinks:load', () => {
     changeAvatar();
 });
 
+import {previewImageOnFileSelect} from "../custom/form.js";
+document.addEventListener('turbolinks:load', () => {  
+    previewImageOnFileSelect();
+});
+

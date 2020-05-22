@@ -34,3 +34,8 @@ document.addEventListener('turbolinks:load', () => {
     changePhotoUploadAcc();
 });
 
+import {changeAvatar} from "../custom/form.js";
+document.addEventListener('turbolinks:load', () => {  
+    changeAvatar();
+});
+

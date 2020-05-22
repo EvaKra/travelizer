@@ -128,6 +128,30 @@ const changePhotoUploadAcc = () => {
   }
     
 
+  // avatar change
+
+  const changeAvatar = () => {
+    console.log("Avatar");
+  
+    const customBtnAvatar = document.getElementById("custom-button-avatar");
+    const realFileBtnAvatar = document.getElementById("user_avatar");
+    const customTxtAvatar = document.getElementById("custom-text-avatar");
+  
+    if (customBtnAvatar) {
+    customBtnAvatar.addEventListener("click", () => {
+      realFileBtnAvatar.click();
+    });
+    }
+    
+    realFileBtnAvatar.addEventListener("change", () => {
+     
+      if (realFileBtnAvatar.files) {
+        customTxtAvatar.innerHTML = `${realFileBtnAvatar.files.length} attached`;
+      } else {
+        customTxtAvatar.innerHTML = "No file chosen, yet.";
+      }
+    });
+    }
  
-  export { characterCount, changePhotoUpload, changePhotoUploadDest, changePhotoUploadAct, changePhotoUploadAcc };
+  export { characterCount, changePhotoUpload, changePhotoUploadDest, changePhotoUploadAct, changePhotoUploadAcc, changeAvatar };
   

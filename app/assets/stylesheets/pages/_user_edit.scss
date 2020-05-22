@@ -34,5 +34,27 @@
 }
 
 .update-avatar {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.update-avatar-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.photo-chosen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.upload-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

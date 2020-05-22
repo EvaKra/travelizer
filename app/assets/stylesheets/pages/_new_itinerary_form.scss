@@ -62,13 +62,7 @@
   .button-cluster {
     margin-bottom: 20px;
   }
-
-
-
-
-
-
-  
+ 
 #custom-button-dest {
     border: 1px solid #d3d3d3;
     padding: 13px 15px;
@@ -142,4 +136,24 @@ color: #aaa;
 #accommodation_photos {
 // visibility: collapse;
 display: none;
+}
+
+#user_avatar {
+  display: none;
+}
+
+#custom-button-avatar {
+  border: 1px solid #d3d3d3;
+  padding: 13px 15px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+}
+
+#custom-text-avatar {
+  margin-left: 10px;
+font-family: sans-serif;
+color: #aaa;
 }

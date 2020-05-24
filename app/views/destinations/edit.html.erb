@@ -1,12 +1,12 @@
 <div class="container-new-destination">
   <div class="new-form-box row">
-    <div class="new-form col-12 col-lg-8">
+    <div class="new-form col-11 col-lg-8">
     <h2> Which city did you visit on your trip? </h2>
       <%= simple_form_for [@itinerary, @destination] do |f| %>
         <%= f.input :country%>
         <%= f.input :city%>
         <%= f.input :date%>
-        <%= f.input :description%>
+        <%= f.input :description %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
         <%= f.submit "Save changes",  class:"search-button" %>
         <%# <div>

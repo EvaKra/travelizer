@@ -58,7 +58,7 @@
                             <%end%>
                         </h1>   
                     </div>
-                    <p><%= d.description%></p><br>
+                    <p class="description"><%= d.description%></p><br>
                     <div class="d-image-box row">
                         <% d.photos.each do |photo|%>
                             <div class="destination-image col-12 col-lg-6" >
@@ -89,7 +89,7 @@
                                             <%= cl_image_tag photo.key %>
                                         </div>
                                     <%end%>
-                                <%= a.description%>
+                                <div class="description"><%= a.description%></div>
                             </div>
                         <%end%>
                     <% else %>    
@@ -117,7 +117,7 @@
                                     <%end%>
                                 </h3>
                                 <br>
-                                <%= t.description%>
+                                <div class="description"><%= t.description%></div>
                             </div>
                         <%end%>
                     <% else %>   

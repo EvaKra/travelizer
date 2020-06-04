@@ -2,20 +2,23 @@
 <%# <div class="container"> %>
     <% if !user_signed_in? %>
         <div class="textbox_buttons_row row">
-            <div class="textbox_buttons_column col-12 col-lg-6">
-            <div class="textbox">
-            <p>
-            Hi there!<br>
-            <br>
-            We have put together a library of travel itineraries for you! Here you can find inspiration for your next trip and share your own itineraries with fellow travellers!
-            </p>
-            </div>
+            <div class="textbox_buttons_column col-12 col-lg-4">
+                <div class="textbox">
+                    <h1>Hi Traveller!</h1>
+                    <br>
+                    <br>
+                    <p>
+                        Not sure where you are going next? No problem! 
+                        <br>
+                        Check out our travel library where you can find inspiration for your next trip and share your own itineraries with fellow travellers.
+                    </p>
+                </div>
             <%= link_to "Log in", new_user_session_path, class: "sign-in-button" %>
             <%= link_to "Sign up", new_user_registration_path, class: "sign-up-button"%>
             </div>
         </div>
         <% else %>
-        <div class="form-box col-12 col-lg-6">
+        <div class="form-box col-12 col-lg-4">
             <h1>Hi <%= current_user.first_name%>!</h1>
             <p>Plan your next trip!</p>
             <div class="input-field">

@@ -2,7 +2,7 @@
 <%# <div class="container"> %>
     <% if !user_signed_in? %>
         <div class="textbox_buttons_row row">
-            <div class="textbox_buttons_column col-12 col-lg-4">
+            <div class="textbox_buttons_column col-12 col-md-5 col-lg-4">
                 <div class="textbox">
                     <h1>Hi Traveller!</h1>
                     <br>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <% else %>
-        <div class="form-box col-12 col-lg-4">
+        <div class="form-box col-12 col-md-5 col-lg-4">
             <h1>Hi <%= current_user.first_name%>!</h1>
             <p>Plan your next trip!</p>
             <div class="input-field">

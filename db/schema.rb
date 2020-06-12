@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_161604) do
+ActiveRecord::Schema.define(version: 2020_06_12_134939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2020_05_13_161604) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "summary"
+    t.boolean "publish", default: false
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 

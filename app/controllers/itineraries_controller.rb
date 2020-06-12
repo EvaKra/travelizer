@@ -66,6 +66,10 @@ class ItinerariesController < ApplicationController
       redirect_to itineraries_path
     end
 
+    def toggle_publish
+      @itinerary.toggle(:publish).save
+    end
+
     private
 
     def itinerary_params

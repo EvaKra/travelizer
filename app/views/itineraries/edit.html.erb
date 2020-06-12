@@ -10,6 +10,7 @@
         <button type="button" id="custom-button">📷 Upload photos</button>
         <span id="custom-text">No photo chosen, yet.</span>
         <%= f.input :photos, as: :file, label: false, input_html: { multiple: true }%>
+        <%= f.input :publish, label: "Publish itinerary?", as: :radio_buttons %>
         <%= f.submit class:"search-button", style:"margin: 0px 0px 50px 0px;" %>
       <% end %>
     </div>

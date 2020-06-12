@@ -10,6 +10,8 @@ class ItinerariesController < ApplicationController
 
     def show
         @itinerary = Itinerary.find(params[:id])
+        @user = @itinerary.user
+        @published_itineraries = @user.itineraries.select { |i| i.publish == true }
 
         @destinations = Destination.geocoded # returns destinations with coordinates
         @destinations = @itinerary.destinations
@@ -73,6 +75,6 @@ class ItinerariesController < ApplicationController
     private
 
     def itinerary_params
-        params.require(:itinerary).permit(:name, :duration, :summary, photos: [],  destination_ids: [])
+        params.require(:itinerary).permit(:name, :duration, :summary, :publish, photos: [],  destination_ids: [])
     end
 end

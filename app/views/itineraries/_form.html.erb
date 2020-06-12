@@ -7,6 +7,15 @@
         <%= f.input :duration, label: "2. Number of days", input_html: { min: '1', step: '1' } %>
         <%= f.input :summary, maxlength:"700", label: "3. Give us a short summary of your trip", id:"itinerary_summary" %>
         <p id="charcount">max 700 characters</p>
+        <%#= f.input :publish, label: "Publish itinerary?", as: :radio_buttons %> 
+
+        <p>4. Publish the itinerary?</p>
+        <div><%= f.label :publish, "Yes", :value => true %>
+        <%= f.radio_button :publish, true %></div>
+
+        <div><%= f.label :publish, "No, not yet", :value => false %>
+        <%= f.radio_button :publish, false %></div>  
+
         <%= f.submit "Save changes", class:"search-button"%>
       <% end %>
     </div>

@@ -1,6 +1,7 @@
 <div class="container">
     <div class="cards-container">
             <% @itineraries.each do |itinerary|%>
+                <% if itinerary.publish == true %>
                     <div class="itinerary-card">
                         <div id="carousel_<%= itinerary.id %>" class="carousel slide" data-interval="false">
                             <ol class="carousel-indicators">
@@ -31,7 +32,7 @@
                             </div>
                         </div>  
                     </div>
-                    
+                <% end %>
             <% end %>
     </div>
 </div>

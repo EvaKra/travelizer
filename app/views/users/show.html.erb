@@ -75,49 +75,66 @@
                                 </a>
                             </div>
                             <div class="name-duration">
-                                <div class="i-name"><%= link_to itinerary.name, itinerary_path(itinerary) %>
+                                <div class="i-name">
+                                    <%= link_to itinerary.name, itinerary_path(itinerary) %>
                                 </div>
-                                <%
-=begin%>
- <div >
-                                    <% if itinerary.publish == true %>
-                                    <i class="fas fa-check-square tick-green"></i>
-                                    <% end %>
-                                </div> 
-<%
-=end%>
-
-                                <!-- Button trigger modal -->
-                                <div >
-                                    <% if itinerary.publish == true %>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                 <i class="fas fa-check-square tick-green"></i>
-                                </button>
-                                <% end %>
-                                </div>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-check-square tick-green"></i></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                                 <!-- Button trigger modal -->
+                                <% if itinerary.publish == true %>
+                                    <div>
+                                        <button type="button" class="button-modal" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <i class="fas fa-check-square tick-green"></i>
                                         </button>
+                                    </div>                                
+                                <% else %>
+                                    <div>
+                                        <button type="button" class="button-modal" data-toggle="modal" data-target="#exampleModal">
+                                        <i class="fas fa-minus-square icon-orange"></i>
+                                        </button>
+                                    </div>    
+                                <% end %>    
+                                    <!-- Modal -->
+                                <% if itinerary.publish == true %>
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-check-square tick-green-modal"></i></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            This itinerary is published. Other Travelizers can read it and contact you with any questions. If your itinerary is not finished yet, you can unpublish it any time.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="search-button-modal" data-dismiss="modal">Close</button>
+                                            <button type="button" class="search-button-modal"><%= link_to "Unpublish", edit_itinerary_path(itinerary)%></button>
+                                        </div>
+                                        </div>
                                     </div>
-                                    <div class="modal-body">
-                                        This itinerary is published. Other Travelizers can read it and contact you with any questions.
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                <% else %>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-minus-square icon-orange"></i></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            nope
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="search-button-modal" data-dismiss="modal">Close</button>
+                                            <button type="button" class="search-button-modal"><%= link_to "Publish", edit_itinerary_path(itinerary)%></button>
+                                        </div>
+                                        </div>
                                     </div>
                                     </div>
-                                </div>
-                                </div>
-
-
+                                <% end %>
                             </div>  
                         </div>             
                     <%end%>

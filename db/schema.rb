@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_134939) do
+ActiveRecord::Schema.define(version: 2020_06_16_163359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,15 @@ ActiveRecord::Schema.define(version: 2020_06_12_134939) do
     t.index ["itinerary_id"], name: "index_destinations_on_itinerary_id"
   end
 
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "itinerary_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["itinerary_id"], name: "index_favourites_on_itinerary_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
   create_table "itineraries", force: :cascade do |t|
     t.string "name"
     t.integer "duration"
@@ -148,6 +157,8 @@ ActiveRecord::Schema.define(version: 2020_06_12_134939) do
   add_foreign_key "chatrooms", "users", column: "receiver_id"
   add_foreign_key "chatrooms", "users", column: "sender_id"
   add_foreign_key "destinations", "itineraries"
+  add_foreign_key "favourites", "itineraries"
+  add_foreign_key "favourites", "users"
   add_foreign_key "itineraries", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"

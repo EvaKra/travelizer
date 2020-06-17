@@ -14,4 +14,5 @@ class Itinerary < ApplicationRecord
 
   validates_length_of :name, :maximum => 60
 
+
 end

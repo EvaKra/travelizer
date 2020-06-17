@@ -72,6 +72,8 @@ class ItinerariesController < ApplicationController
       @itinerary.toggle(:publish).save
     end
 
+ 
+
     private
 
     def itinerary_params

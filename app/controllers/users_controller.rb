@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
+        @published_itineraries = @user.itineraries.select { |i| i.publish == true }
     end
 
     def edit

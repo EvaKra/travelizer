@@ -1,7 +1,11 @@
 class FavouritesController < ApplicationController
 
+    def index 
+        @favourites = Favourite.all
+    end
+
     def create
-        @itinerary = Product.find(params[:itinerary_id])
+        @itinerary = Itinerary.find(params[:itinerary_id])
         @favourite = Favourite.create(user: current_user, itinerary: @itinerary)
         redirect_back fallback_location: itineraries_path(anchor: "favourite-#{@favourite.id}")
     end

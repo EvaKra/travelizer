@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 end
   resources :search, only: [:index]
   resources :itineraries do
-    resources :favourites, only: [:create, :index]
+    resources :favourites, only: [:create]
     resources :destinations, only: [:new, :create, :edit, :update]
     resources :destinations do   
       resources :accommodations, only: [:new, :create, :edit, :update]

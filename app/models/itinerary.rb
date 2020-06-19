@@ -5,6 +5,7 @@ class Itinerary < ApplicationRecord
   has_many :activities, through: :destinations
   has_many :transports, through: :destinations
   has_many_attached :photos
+  has_many :favorites, dependent: :destroy
   #accepts_nested_attributes_for :destinations, reject_if: :all_blank, allow_destroy: true
   # validates :name, presence: true
   # validates :duration, presence: true, numericality: { greater_than: 0 }

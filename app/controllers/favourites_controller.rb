@@ -1,6 +1,5 @@
 class FavouritesController < ApplicationController
 
-
     def create
         @itinerary = Itinerary.find(params[:itinerary_id])
         @favourite = Favourite.create(user: current_user, itinerary: @itinerary)

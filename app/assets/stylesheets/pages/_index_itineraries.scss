@@ -88,4 +88,8 @@
     border-radius: none;
     margin-bottom: 0px;
     box-shadow: none;
+    &:focus {
+        color: black;
+      }
 }
+

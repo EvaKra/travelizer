@@ -8,7 +8,8 @@ class FavouritesController < ApplicationController
     
     def destroy
         @favourite = Favourite.find(params[:id])
+     
         @favourite.destroy
-        redirect_back fallback_location: itineraries_path(anchor: "favourite-#{@favourite.id}")
+        redirect_to itineraries_path(anchor: "favourite-#{@favourite.id}")
     end
 end

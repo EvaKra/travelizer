@@ -32,13 +32,13 @@
                         <% if itinerary.favourites.where(user: current_user).empty? %>
                             <%= simple_form_for [itinerary, Favourite.new], remote: true do |f| %>
                             <%= f.button :button, type: :submit, id: "favorite-star" do %>
-                                <i class="far fa-star"></i>
+                               <i class="far fa-star"></i>
                                 <% end %>
                             <%end%>
                         <% else %>
                             <%= link_to favourite_path(itinerary.favourites.find_by_user_id(current_user.id)), method: :delete, remote: true, id: "favorite-star" do %>
                                 <i class="fas fa-star"></i>
-                                <%end%>
+                            <%end%>
                         <%end%>
                         </div>
                         </div>  
@@ -48,3 +48,22 @@
     </div>
 </div>
 
+<script>
+  document.addEventListener('turbolinks:load', () => {
+    if (localStorage['scroll']) {
+      document.getElementById('card-wrapper').scroll({ top: localStorage['scroll'] });
+    }
+
+    document.getElementById('card-wrapper').addEventListener('scroll', () => {
+      localStorage['scroll'] =  document.getElementById('card-wrapper').scrollTop;
+    })
+    // if (localStorage['scroll']) {
+    //   window.scroll({ top: localStorage['scroll'] });
+    //   console.log('HALLO', localStorage['scroll']);
+    // }
+    // window.addEventListener('scroll', () => {
+    //   localStorage['scroll'] = window.scrollY;
+    // })
+  });
+
+</script>

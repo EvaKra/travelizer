@@ -26,27 +26,29 @@
                             </a>
                         </div>
                         <div class="name-duration">
-                            <div class="i-name"><%= link_to itinerary.name, itinerary_path(itinerary) %>
-                        </div>
-                        <div class="duration"><%= itinerary.duration %> days
-                        <% if itinerary.favourites.where(user: current_user).empty? %>
-                            <%= simple_form_for [itinerary, Favourite.new], remote: true do |f| %>
-                            <%= f.button :button, type: :submit, id: "favorite-star" do %>
-                               <i class="far fa-star"></i>
-                                <% end %>
-                            <%end%>
-                        <% else %>
-                            <%= link_to favourite_path(itinerary.favourites.find_by_user_id(current_user.id)), method: :delete, remote: true, id: "favorite-star" do %>
-                                <i class="fas fa-star"></i>
-                            <%end%>
-                        <%end%>
-                        </div>
+                            <div class="i-name">
+                                <%= link_to itinerary.name, itinerary_path(itinerary) %>
+                            </div>
+                            <div class="duration"><%= itinerary.duration %> days
+                                <% if itinerary.favourites.where(user: current_user).empty? %>
+                                    <%= simple_form_for [itinerary, Favourite.new] do |f| %>
+                                    <%= f.button :button, type: :submit, class: "favorite-star" do %>
+                                        <i class="far fa-star"></i>
+                                        <% end %>
+                                    <%end%>
+                                <% else %>
+                                     <%= link_to favourite_path(itinerary.favourites.find_by_user_id(current_user.id)), method: :delete,  class: "favorite-star" do %>
+                                        <i class='fas fa-star'></i>
+                                    <%end%>
+                                <%end%>
+                            </div>
                         </div>  
                     </div>
                 <% end %>
             <% end %>
     </div>
 </div>
+
 
 <script>
   document.addEventListener('turbolinks:load', () => {

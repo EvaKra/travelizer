@@ -16,5 +16,5 @@ end
       resources :transports, only: [:new, :create, :edit, :update]
     end
     end  
-    resources :favourites, only: [:destroy]
+  resources :favourites, only: [:destroy]
 end

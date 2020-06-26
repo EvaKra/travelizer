@@ -2,9 +2,9 @@ class ItinerariesController < ApplicationController
 
     def index
         if params[:query].present?
-          @itineraries = Itinerary.where("name ILIKE ?", "%#{params[:query]}%")
+          @itineraries = Itinerary.where("name ILIKE ?", "%#{params[:query]}%").includes(:favourites)
         else
-          @itineraries = Itinerary.all
+          @itineraries = Itinerary.all.includes(:favourites)
         end
     end
 
@@ -65,11 +65,7 @@ class ItinerariesController < ApplicationController
     def destroy
       @itinerary = Itinerary.find(params[:id])
       @itinerary.destroy
-      redirect_to itineraries_path
-    end
-
-    def toggle_publish
-      @itinerary.toggle(:publish).save
+      redirect_to user_path(current_user)
     end
 
  

@@ -32,13 +32,13 @@
                             <div class="duration"><%= itinerary.duration %> days
                                 <% if itinerary.favourites.where(user: current_user).empty? %>
                                     <%= simple_form_for [itinerary, Favourite.new] do |f| %>
-                                    <%= f.button :button, type: :submit, class: "favorite-star" do %>
-                                        <i class="far fa-star"></i>
+                                    <%= f.button :button, type: :submit, id: "favorite-star" do %>
+                                        <i class="far fa-star star-empty"></i>
                                         <% end %>
                                     <%end%>
                                 <% else %>
-                                     <%= link_to favourite_path(itinerary.favourites.find_by_user_id(current_user.id)), method: :delete,  class: "favorite-star" do %>
-                                        <i class='fas fa-star'></i>
+                                     <%= link_to favourite_path(itinerary.favourites.find_by_user_id(current_user.id)), method: :delete,  id: "favorite-star" do %>
+                                        <i class='fas fa-star star-filled'></i>
                                     <%end%>
                                 <%end%>
                             </div>

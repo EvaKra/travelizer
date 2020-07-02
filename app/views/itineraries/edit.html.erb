@@ -18,7 +18,7 @@
 <%
 =end%>
         <%#= f.input :photos, as: :file, label: false, input_html: { multiple: true }%>
-        <p>4. Publish the itinerary?</p>
+        <p>4. Publish the itinerary <%= @itinerary.name %>?</p>
         <div><%= f.label :publish, "Yes", :value => true %>
         <%= f.radio_button :publish, true %></div>
 

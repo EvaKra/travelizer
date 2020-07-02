@@ -92,7 +92,7 @@
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-check-square tick-green-modal"></i><%= itinerary.name %></h5>
+                                                            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-check-square tick-green-modal"></i> <%= itinerary.name %></h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -101,8 +101,8 @@
                                                             This itinerary is published. Other Travelizers can read it and contact you with any questions. If your itinerary is not finished yet, you can unpublish it any time.
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="search-button-modal" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="search-button-modal"><%= link_to "Unpublish", edit_itinerary_path(itinerary)%></button>
+                                                            <button type="button" class="close-button-modal" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="action-button-modal"><%= link_to "Unpublish", edit_itinerary_path(itinerary)%></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -128,8 +128,8 @@
                                                             This itinerary has not been published yet. If you are happy with it, you can publish it now!
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="search-button-modal" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="search-button-modal"><%= link_to "Publish", edit_itinerary_path(itinerary)%></button>
+                                                            <button type="button" class="close-button-modal" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="action-button-modal"><%= link_to "Publish", edit_itinerary_path(itinerary)%></button>
                                                         </div>
                                                     </div>
                                                 </div>

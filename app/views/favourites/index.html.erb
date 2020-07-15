@@ -1,13 +1,51 @@
- My favourite itineraries
- <br>
-  <br>
-   <br>
-    <br>
-     <br>
-      <br>
-       <br>
-    <% @favourites.each do |favourite|%>
-
-    <%= favourite.itinerary.name%>
-
-    <%end%>
+ <div class="container">
+    <div class="cards-container">
+            <% @favourites.each do |favourite|%>
+                <% if favourite.itinerary.publish == true %>
+                    <div class="itinerary-card">
+                        <div id="carousel_<%= favourite.itinerary.id %>" class="carousel slide" data-interval="false">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel_<%= favourite.itinerary.id %>" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel_<%= favourite.itinerary.id %>" data-slide-to="1"></li>
+                                <li data-target="#carousel_<%= favourite.itinerary.id %>" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <% favourite.itinerary.photos.each_with_index do |photo, index| %>
+                                <div class="carousel-item <%= 'active' if index.zero? %>">
+                                    <%= cl_image_tag(photo.key, class: "d-block w-100" ) %>
+                                </div>
+                                <% end %>
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel_<%= favourite.itinerary.id %>" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel_<%= favourite.itinerary.id %>" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <div class="name-duration">
+                            <div class="i-name">
+                                <%= link_to favourite.itinerary.name, itinerary_path(favourite.itinerary) %>
+                            </div>
+                            <div class="duration"><%= favourite.itinerary.duration %> days
+                                <% if favourite.itinerary.favourites.where(user: current_user).empty? %>
+                                    <%= simple_form_for [itinerary, Favourite.new] do |f| %>
+                                    <%= f.button :button, type: :submit, id: "favorite-star" do %>
+                                        <i class="far fa-bookmark star-empty"></i>
+                                        <% end %>
+                                    <%end%>
+                                <% else %>
+                                     <%= link_to favourite_path(favourite.itinerary.favourites.find_by_user_id(current_user.id)), method: :delete,  id: "favorite-star" do %>
+                                        <i class='fas fa-bookmark star-filled'></i>
+                                    <%end%>
+                                <%end%>
+                            </div>
+                        </div>  
+                    </div>
+                <% end %>
+            <% end %>
+    </div>
+</div>
+ 

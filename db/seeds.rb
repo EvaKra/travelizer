@@ -17,7 +17,7 @@ user = User.new(first_name: "Eva", last_name: "Kramer", description:"I live in L
 user.avatar.attach(io: File.open('app/assets/images/profile_user.jpg'), filename: 'user.jpg', content_type: 'image/jpg')
 user.save!
 
-default = User.new(first_name: "Admin", last_name: "Test", description:"I currently work on this website and try to figure out if everything works the way it should :)", email: "default@gmail.com", password: "123456")
+default = User.new(first_name: "Eva", last_name: "Kramer", description:"I live in London and work as a web developer. I love travelling whenever I can. I hope you like the itinerary!"", email: "default@gmail.com", password: "123456")
 default.avatar.attach(io: File.open('app/assets/images/profile_default.jpg'), filename: 'user.jpg', content_type: 'image/jpg')
 default.save!
 
@@ -75,8 +75,7 @@ beirut.photos.attach(io: File.open('app/assets/images/Lebanon/Beirut_Martyr_Squa
 beirut.save!
 
 
-beirut.activities.create!(name: "Walking Tour", cost:20, description:"We did a 4 hour walking tour in Beirut with https://www.alternative-beirut.com/ . The tour started from the top of the St. Nicolas Staircase (NOT the St. Nicolas Church) in Gemmayzeh and was supposed to end at Bab Idriss, next to the old Holiday Inn Hotel. Due to the revolution protests at the time 
-we ended the tour at the Martyr Square. We learned a lot about Lebanon's culture and history. I would recommend doing a walking tour as you see so much more.")
+beirut.activities.create!(name: "Walking Tour", cost:20, description:"We did a 4 hour walking tour in Beirut with https://www.alternative-beirut.com/ . The tour started from the top of the St. Nicolas Staircase (NOT the St. Nicolas Church) in Gemmayzeh and was supposed to end at Bab Idriss, next to the old Holiday Inn Hotel. Due to the revolution protests at the time we ended the tour at the Martyr Square. We learned a lot about Lebanon's culture and history. I would recommend doing a walking tour as you see so much more.")
 pigeon_rocks = beirut.activities.new(name: "The Pigeon Rocks", cost:0, description:"Located in the sea by the historical Raouche, the Pigeon Rocks are a Lebanese natural treasure. In the area surrounding the rocks, evidence of ancient human existence in Lebanon has been found. Walk on Raouche’s Corniche and marvel at these amazing sights.")
 pigeon_rocks.photos.attach(io: File.open('app/assets/images/Lebanon/Beirut_Pigeon_Rocks.jpg'), filename: 'itinerary.jpg', content_type: 'image/jpg')
 pigeon_rocks.save!

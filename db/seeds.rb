@@ -17,7 +17,7 @@ user = User.new(first_name: "Eva", last_name: "Kramer", description:"I live in L
 user.avatar.attach(io: File.open('app/assets/images/profile_user.jpg'), filename: 'user.jpg', content_type: 'image/jpg')
 user.save!
 
-default = User.new(first_name: "Eva", last_name: "Kramer", description:"I live in London and work as a web developer. I love travelling whenever I can. I hope you like the itinerary!"", email: "default@gmail.com", password: "123456")
+default = User.new(first_name: "Eva", last_name: "Kramer", description:"I live in London and work as a web developer. I love travelling whenever I can. I hope you like the itinerary!", email: "default@gmail.com", password: "123456")
 default.avatar.attach(io: File.open('app/assets/images/profile_default.jpg'), filename: 'user.jpg', content_type: 'image/jpg')
 default.save!
 

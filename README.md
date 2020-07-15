@@ -1,1 +1,7 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+# Travelizer
+
+## Background
+A new web application for travel enthusiasts. Users can visit the itinerary library to find inspiration for their next trip. Once decided on a destination Travelizer allows users to create and share their own travel itineraries with the Travelizer community.
+
+
+

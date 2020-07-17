@@ -103,18 +103,18 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="container">
-                                                                This itinerary is published. Other Travelizers can read it and contact you with any questions. If your itinerary is not finished yet, you can unpublish it any time.                                                
-                                                                <br>
-                                                                <br>
-                                                                Unpublish now?
+                                                                This itinerary is published.<br>
+                                                                Unpublish now?                                                
+                                                                <br>                                                                                                                               
                                                                 <%= simple_form_for(itinerary) do |f| %>  
                                                                     
-                                                                    <div><%= f.label :publish, "Yes", :value => false %>
-                                                                    <%= f.radio_button :publish, false %></div>
+                                                                    <div class="radio-buttons-center">
+                                                                        <div><%= f.label :publish, "Yes", :value => false %>
+                                                                        <%= f.radio_button :publish, false %></div>
 
-                                                                    <div><%= f.label :publish, "No", :value => true %>
-                                                                    <%= f.radio_button :publish, true %></div>  
-
+                                                                        <div><%= f.label :publish, "No", :value => true %>
+                                                                        <%= f.radio_button :publish, true %></div>  
+                                                                    </div>        
                                                                     <%#= f.input :publish, label: "Publish itinerary?", as: :radio_buttons %>
                                                                     
                                                                     <div class="modal-footer">
@@ -147,18 +147,18 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="container">
-                                                                This itinerary is not published yet.
-                                                                <br>
-                                                                <br>
-                                                                Share it with other Travelizers and help them plan their next holiday?                                                 
+                                                                This itinerary is not published yet.<br>
+                                                                Publish now?
+                                                                <br>                                                                                                             
                                                                 <%= simple_form_for(itinerary) do |f| %>  
                                                                     
-                                                                    <div><%= f.label :publish, "Yes", :value => true %>
-                                                                    <%= f.radio_button :publish, true %></div>
+                                                                    <div class="radio-buttons-center">
+                                                                        <div><%= f.label :publish, "Yes", :value => true %>
+                                                                        <%= f.radio_button :publish, true %></div>
 
-                                                                    <div><%= f.label :publish, "No", :value => false %>
-                                                                    <%= f.radio_button :publish, false %></div>  
-
+                                                                        <div><%= f.label :publish, "No", :value => false %>
+                                                                        <%= f.radio_button :publish, false %></div>  
+                                                                    </div>
                                                                     <%#= f.input :publish, label: "Publish itinerary?", as: :radio_buttons %>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="close-button-modal" data-dismiss="modal">Close</button>

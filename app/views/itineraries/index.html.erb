@@ -1,6 +1,10 @@
 <div class="container">
     <div class="header-center">
-      <h1>Here is what we found</h1>
+        <% if @itineraries.empty? %>
+            <h1>Unfortunately, we couldn't find any itinerary</h1>        
+        <%else%>
+            <h1>Here is what we found</h1>
+        <%end%>
    </div>
     <div class="cards-container">
             <% @itineraries.each do |itinerary|%>

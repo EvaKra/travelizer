@@ -3,8 +3,7 @@
         <div class="title">
             <h1>
                 <%= @itinerary.name %>, <%= @itinerary.duration %> days
-            </h1>
-            
+            </h1>            
             <div class="author-avatar">
                 <div class="avatar-box">
                     <% if @itinerary.user.avatar.attached? %>
@@ -21,7 +20,11 @@
         <div id="itinerary-summary">   
             <%= @itinerary.summary %> 
             <% if current_user == @itinerary.user %>
-                <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_path(@itinerary), remote: true %>
+                <% if @itinerary.summary? %>
+                    <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_itinerary_path(@itinerary), remote: true %>
+                <% else %>                
+                    <%= link_to "<i class='fas fa-plus-square'></i> Add summary".html_safe, edit_itinerary_path(@itinerary), remote: true %>
+                <% end %>
             <%end%>
         </div>
     </div>    

@@ -3,7 +3,7 @@
     <div class="new-form col-11 col-lg-8">
         <h2> How did you travel from <%= @destination.city %> to the next place? </h2>
         <%= simple_form_for [@itinerary, @destination, @transport] do |f| %>
-          <%= f.input :transport_type, label: "Type of transport", :collection => ['Boat','Car', 'Flight', 'Train', 'Taxi', 'Uber'] %>
+          <%= f.input :transport_type, label: "Type of transport", :collection => ['Boat','Car', 'Flight', 'Train', 'Taxi', 'Uber', 'Motorbike', 'Bicycle', 'Walk'] %>
           <%= f.input :description, label: "Summary" %>
           <%= f.input :start_location, label: "Where did you start?"%>
           <%= f.input :via_location, label: "Did you stop on the way? If yes, where?"%>

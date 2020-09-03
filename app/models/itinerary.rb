@@ -12,6 +12,9 @@ class Itinerary < ApplicationRecord
   # validates :summary, presence: true
   # validates :photos, presence: true
  
+  validates :name, presence: true
+  validates :duration, presence: true
+  validates :summary, presence: true
 
   validates_length_of :name, :maximum => 60
 

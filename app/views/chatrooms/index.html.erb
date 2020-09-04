@@ -1,51 +1,59 @@
- <div class="container-chat">
-    <h1>My conversations</h1>
-    <div class="convo-box row">     
-        <% if @chatrooms.any? %>
-            <% @chatrooms.each do |chatroom|%>
-                <% if chatroom.sender_id == current_user.id || chatroom.receiver_id == current_user.id %>
-                    <div class="chatroom-card col-12 col-lg-8">                 
-                        <div class="left-chatroom-card">
-                            <div class="chatroom-avatar">
-
-                            
-                                <% if chatroom.sender.avatar.attached? %>
-                                    <%= cl_image_tag chatroom.sender.avatar.key, class:"avatar-medium"%>
-                                <%else%>
-                                    <i class="fas fa-user-circle" style="font-size: 50px;"></i>
-                                <%end%>
-                            </div> 
-                            <div class="sender-message">
-                                <div class="sender-name">
-                                <% if chatroom.sender_id == current_user.id ||  chatroom.receiver_id == current_user.id %>
-                                    <% if chatroom.sender_id == current_user.id %>
-                                        <% receiver = User.find(chatroom.receiver_id) %>
-                                    <% else %>
-                                        <% receiver = User.find(chatroom.sender_id) %>
-                                    <% end %>
-                                        <%= link_to receiver.first_name, chatroom_messages_path(chatroom)%>
-                                <% end %>
-                                    <%#= link_to chatroom.sender.first_name, chatroom_path(chatroom) %>
-                                </div>
-                                <% if chatroom.messages.any? %> 
-                                <div class="last-message">
-                                    <%= chatroom.messages.last.created_at.strftime("%d/%m/%y") %>
-                                </div>
-                                <% end %>
-                            </div>    
-                        </div>    
-                        <% if chatroom.messages.any? %> 
-                        <div class="right-chatroom-card">
-                            <% if chatroom.messages.last.content.split.length > 7 %>
-                                <%= chatroom.messages.last.content.split[0..7].join(' ')... %>
-                            <% else %>
-                                <%= chatroom.messages.last.content %>
-                            <% end %>
-                        </div>
-                        <% end %>
-                    </div>
+<div class="container-chat">
+  <h1>My conversations</h1>
+  <div class="convo-box row">     
+    <% if @chatrooms.any? %>
+      <% @chatrooms.each do |chatroom|%>
+        <% if chatroom.sender_id == current_user.id || chatroom.receiver_id == current_user.id %>
+          <div class="chatroom-card col-12 col-lg-8">                 
+            <div class="left-chatroom-card">
+              <div class="chatroom-avatar">
+                <% if chatroom.sender_id == current_user.id %>
+                  <% receiver = User.find(chatroom.receiver_id) %>
+                  <% if chatroom.receiver.avatar.attached? %>
+                    <%= cl_image_tag chatroom.receiver.avatar.key, class:"avatar-medium"%>
+                  <% else %>
+                    <i class="fas fa-user-circle" style="font-size: 50px;"></i>
+                  <% end %>
+                <% else %>
+                  <% receiver = User.find(chatroom.sender_id) %>
+                  <% if chatroom.sender.avatar.attached? %>
+                    <%= cl_image_tag chatroom.sender.avatar.key, class:"avatar-medium"%>
+                  <% else %>
+                    <i class="fas fa-user-circle" style="font-size: 50px;"></i>
+                  <% end %>
+                <% end %>                
+              </div> 
+              <div class="sender-message">
+                <div class="sender-name">
+                  <%# if chatroom.sender_id == current_user.id ||  chatroom.receiver_id == current_user.id %>
+                    <% if chatroom.sender_id == current_user.id %>
+                      <% receiver = User.find(chatroom.receiver_id) %>
+                    <% else %>
+                      <% receiver = User.find(chatroom.sender_id) %>
+                    <% end %>
+                      <%= link_to receiver.first_name, chatroom_messages_path(chatroom)%>
+                  <%# end %>
+                  <%#= link_to chatroom.sender.first_name, chatroom_path(chatroom) %>
+                </div>
+                <% if chatroom.messages.any? %> 
+                  <div class="last-message">
+                    <%= chatroom.messages.last.created_at.strftime("%d/%m/%y") %>
+                  </div>
                 <% end %>
-            <%end%>
-        <%end%>       
-    </div>
+              </div>    
+            </div>    
+            <% if chatroom.messages.any? %> 
+              <div class="right-chatroom-card">
+                <% if chatroom.messages.last.content.split.length > 7 %>
+                  <%= chatroom.messages.last.content.split[0..7].join(' ')... %>
+                <% else %>
+                  <%= chatroom.messages.last.content %>
+                <% end %>
+              </div>
+            <%end %>
+          </div>
+        <%end%>
+      <%end%>
+    <%end%>       
+  </div>
 </div>

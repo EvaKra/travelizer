@@ -7,6 +7,8 @@
                     <div class="chatroom-card col-12 col-lg-8">                 
                         <div class="left-chatroom-card">
                             <div class="chatroom-avatar">
+
+                            
                                 <% if chatroom.sender.avatar.attached? %>
                                     <%= cl_image_tag chatroom.sender.avatar.key, class:"avatar-medium"%>
                                 <%else%>

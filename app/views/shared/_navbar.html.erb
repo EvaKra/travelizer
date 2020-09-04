@@ -44,15 +44,15 @@
 <%
 =end%>
         <li class="nav-item dropdown">
-          <%# <%= link_to root_path, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> 
+          <%#= link_to root_path, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> 
           <% if current_user.avatar.attached? %>
             <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> 
           <%else%>
-            <div class="avatar-icon"><i class="fas fa-user-circle"></i></div>
+            <%= image_tag "user_circle.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <%end%> 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "<i class='fas fa-user'></i> Profile".html_safe,  user_path(current_user), class: "dropdown-item" %>
-          <%#= link_to "<i class='fas fa-envelope'></i> Messages".html_safe, chatrooms_path(@chatroom), class: "dropdown-item" %>
+          <%= link_to "<i class='fas fa-envelope'></i> Messages".html_safe, chatrooms_path(@chatroom), class: "dropdown-item" %>
           <%= link_to "<i class='fas fa-map-marked-alt'></i> My itineraries".html_safe, user_path(current_user) , class: "dropdown-item" %>
           <%= link_to "<i class='fas fa-bookmark'></i> Saved itineraries".html_safe, itinerary_favourites_path(current_user) , class: "dropdown-item" %>
           <%= link_to "<i class='fas fa-sign-out-alt'></i> Log out".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item" %>

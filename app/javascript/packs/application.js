@@ -44,3 +44,8 @@ document.addEventListener('turbolinks:load', () => {
     previewImageOnFileSelect();
 });
 
+import {initChatroomCable} from "../channels/chatroom_channel.js";
+document.addEventListener('turbolinks:load', () => {  
+    initChatroomCable();
+});
+

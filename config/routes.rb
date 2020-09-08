@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :chatrooms, only: [:index, :show, :create] do
   resources :messages
+
+  mount ActionCable.server => "/cable"
 end
   resources :search, only: [:index]
   resources :itineraries do

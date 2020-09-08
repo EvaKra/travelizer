@@ -26,6 +26,8 @@ Rails.application.configure do
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
+  config.assets.js_compressor = Uglifier.new(harmony: true)
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
 
@@ -43,10 +45,10 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
   config.action_cable.url = "wss://travelizer-evakra.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = [ "http://travelizer-evakra.herokuapp.com", "https://travelizer-evakra.herokuapp.com" ]
+  config.action_cable.allowed_request_origins = ["https://travelizer-evakra.herokuapp.com", "http://travelizer-evakra.herokuapp.com" ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.

@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  config.action_mailer.default_url_options = { host: "https://travelizer-evakra.herokuapp.com/" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -44,8 +44,8 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
-  config.action_cable.url = "wss://travelizer-evakra.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = ["https://travelizer-evakra.herokuapp.com", "http://travelizer-evakra.herokuapp.com" ]
+  #config.action_cable.url = "wss://travelizer-evakra.herokuapp.com/cable"
+  #config.action_cable.allowed_request_origins = ["https://travelizer-evakra.herokuapp.com", "http://travelizer-evakra.herokuapp.com" ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true

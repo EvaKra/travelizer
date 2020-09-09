@@ -1,7 +1,7 @@
 import consumer from "./consumer";
 
 //const messagesContainer = document.getElementById('messages'); 
-//const formField = document.getElementById("new_message");
+const formField = document.getElementById("new_message");
 
 const initChatroomCable = () => {
   const formField = document.getElementById("new_message");
@@ -14,9 +14,8 @@ if (messagesContainer) {
         formField.reset();
         var div = document.getElementById("messages");
         div.scrollTop = div.scrollHeight - div.clientHeight;
-        
+        console.log(data);
     },
-    console.log(data);
   });
 }
 }

@@ -1,9 +1,11 @@
 import consumer from "./consumer";
 
 //const messagesContainer = document.getElementById('messages'); 
-const formField = document.getElementById("new_message");
+//const formField = document.getElementById("new_message");
 
 const initChatroomCable = () => {
+  const formField = document.getElementById("new_message");
+
   const messagesContainer = document.getElementById('messages'); 
 if (messagesContainer) {
   const id = messagesContainer.dataset.chatroomId;

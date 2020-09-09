@@ -14,8 +14,9 @@ if (messagesContainer) {
         formField.reset();
         var div = document.getElementById("messages");
         div.scrollTop = div.scrollHeight - div.clientHeight;
-        console.log(data);
+        
     },
+    console.log(data);
   });
 }
 }

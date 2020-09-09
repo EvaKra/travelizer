@@ -4,7 +4,6 @@ import consumer from "./consumer";
 const formField = document.getElementById("new_message");
 
 const initChatroomCable = () => {
-  const formField = document.getElementById("new_message");
   const messagesContainer = document.getElementById('messages'); 
 if (messagesContainer) {
   const id = messagesContainer.dataset.chatroomId;
@@ -21,4 +20,4 @@ if (messagesContainer) {
 }
 
 
-export { initChatroomCable };
+export { initChatroomCable }; //Added
